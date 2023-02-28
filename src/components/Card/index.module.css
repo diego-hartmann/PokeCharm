@@ -16,9 +16,6 @@
     background-color:#291f65;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.692);
 }
-.container:hover{
-    /* animation: gradient 1s ease infinite; */
-}
 
 @keyframes gradient {
 	0% {
@@ -67,9 +64,11 @@
     ;
 }
 
+
 .sprite:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
+
 
 .container > i{
     color: white;

@@ -48,12 +48,16 @@ const Card = ( { pokemon } : IProps ) => {
   function openPage(){
     // RouteAPI
     console.clear();
-    console.log(pokemon);
+    // console.log(pokemon);
     console.log(pokemon.name);
+    console.log(front_default_dreamworld);
+    console.log(pokemon.id);
+    console.log(pokemon.order);
     console.log(pokemon.height);
     console.log(pokemon.weight);
     console.log(pokemon.base_experience);
     console.log(pokemon.abilities);
+    console.log(pokemon.stats);
   }
 
   function toggleFav(){

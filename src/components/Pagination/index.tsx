@@ -37,9 +37,6 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
   // Invoke when user click to request another page.
   const handlePageClick = ( event : any ) => {
     const newOffset = (event.selected * pokemonsPerPage) % pokemons.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
@@ -49,11 +46,11 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
       <ReactPaginate
         className={css.selector}
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={()=>{}}
       />
     </div>
