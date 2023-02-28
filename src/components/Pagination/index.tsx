@@ -35,6 +35,7 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
 
   // Invoke when user click to request another page.
   const handlePageClick = ( event : any ) => {
+    console.log('clicked', event);
     const newOffset = (event.selected * pokemonsPerPage) % pokemons.length;
     setItemOffset(newOffset);
   };
@@ -50,7 +51,8 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
         pageRangeDisplayed={5}
         pageCount={pageCount}
         previousLabel="<"
-        renderOnZeroPageCount={()=>{}}
+        // @ts-ignore
+        renderOnZeroPageCount={<div></div>}
       />
     </div>
   );

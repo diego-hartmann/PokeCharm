@@ -37,19 +37,35 @@
     height: 40px;
 }
 .selector > li{
-    display: block;
+    display: inline-block;
     min-width: 48px;
     width: fit-content;
     white-space: nowrap;
     background-color: purple;
-    color: white;
+    color: #ccc;
     text-transform: uppercase;
-    padding: 2px 8px;
     border-radius: 0.2rem;
     cursor: pointer;
     transition: .15s;
 }
+.selector > li > a{
+    padding: 2px 8px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .selector > li:hover{
     transform: translateY(-2px);
     border-bottom: 2px solid rgb(92, 0, 92);
+}
+
+.selector > li:focus-within{
+    transform: translateY(2px) !important;
+    border:none !important;
+    background-color:  rgb(56, 0, 56) !important;
+}
+.selector > li> a:focus{
+    color: #fff;
+    filter: drop-shadow(0 0 5px #fff);
+
 }
