@@ -10,9 +10,11 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
 <img src="https://seeklogo.com/images/Y/yarn-logo-F5E7A65FA2-seeklogo.com.png" width="50px" height="50px" />
 
-2. [TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety. 
+2. [TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety.
+<div style="display:flex; align-items: center; justify-content: flex-start"> 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="50px" height="50px" />
-
+<p> <a href="https://www.typescriptlang.org/">TypeScript</a>: then, the project was initialized with TypeScript for type safety.</p>
+</div>
 3. [ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="50px" height="50px" />
 
