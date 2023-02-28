@@ -5,6 +5,9 @@ import Home from './pages/Home';
 import { favList } from './utils/favList';
 
 import MyPokedex from './pages/MyPokedex';
+import PokeInfo from './pages/PokeInfo';
+
+
 
 function App() {
 
@@ -36,7 +39,8 @@ function App() {
       {/* <Home isLoading={isLoading} pokemons={pokemons} /> */}
       <Home isLoading={isLoading} pokemons={pokemons} />
       <MyPokedex isLoading={isLoading} pokemons={favPokes}/>
-
+      {/* <PokeInfo isLoading={isLoading} pokemons={pokemons} /> */}
+      
     </div>
 
   );

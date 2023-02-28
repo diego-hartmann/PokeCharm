@@ -1,31 +1,28 @@
-interface IPokemonInfo{
-    name : string,
-    image : string,
-    id : number,
-    order : number,
-    height : number,
-    weight : number,
-    base_experience : number,
-    abilities : any[],
-    stats : any[],
-}
+import Loader from "../components/Loader"
+
+
 interface IPokemon{
-    pokemon : IPokemonInfo,
+  pokemons : any,
+    isLoading : boolean,
 }
 
-const PokeInfo = ( { pokemon } : IPokemon ) => {
-  return (
+
+const PokeInfo = ( { pokemons, isLoading, } : IPokemon ) => {
+  const pokemon = pokemons[0];
+  return(
+
+    isLoading ? <Loader /> :
     <>
-        <div>Name: {pokemon.name}</div>
-        <img src={pokemon.image} />
-        <div>Id: {pokemon.id}</div>
-        <div>Order: {pokemon.order}</div>
-        <div>Height: {pokemon.height}</div>
-        <div>Weight: {pokemon.weight}</div>
-        <div>Base experience: {pokemon.base_experience}</div>
-        <div>Abilities: {pokemon.abilities}</div>
-        <div>Stats: {pokemon.stats}</div>
-    </>
+    <div>Name: {pokemon?.name}</div>
+    <img src={pokemon?.image} />
+    <div>Id: {pokemon?.id}</div>
+    <div>Order: {pokemon?.order}</div>
+    <div>Height: {pokemon?.height}</div>
+    <div>Weight: {pokemon?.weight}</div>
+    <div>Base experience: {pokemon?.base_experience}</div>
+    <div>Abilities: {pokemon?.abilities}</div>
+    <div>Stats: {pokemon?.stats}</div>
+    </> 
   )
 }
 
