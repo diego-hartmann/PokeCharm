@@ -9,15 +9,21 @@ function App() {
   const { pokemons, isLoading, errorMessage, isSuccess } = usePokeList();
 
 
+  const favoritesPokemons = pokemons.filter((item:any) => localStorage.getItem("favs")?.includes(item.name))
+
   return (
     <div className="App">
+      
+      {/* FAVORITES */}
+      
+      {/* <Pagination pokemons={favoritesPokemons} pokemonsPerPage={12} */}
+      
+      
+      {/* ALL OF THEM  */}
       <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/>
-        {
-          isLoading && <Loader message='Getting Pokemóns list...'/>
-        }
-        {
-          isSuccess && <Pagination pokemons={pokemons} pokemonsPerPage={12} /> 
-        }
+      { isLoading && <Loader message='Getting Pokemóns list...'/> }
+      { isSuccess && <Pagination pokemons={pokemons} pokemonsPerPage={12} /> }
+    
     </div>
 
   );

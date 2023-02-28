@@ -29,8 +29,10 @@ const Card = ( { pokemon } : IProps ) => {
   const [ isFav, setIsFav ] = useState(false);
 
   useEffect(()=>{
-    // localStorage.getItem(pokemon)
-    // setIsFav(localstorage)
+    // @ts-ignore
+    const listValue = JSON.parse(localStorage.getItem('favs'));
+    const pokeExistsOnList = listValue?.includes(pokemon.name);
+    setIsFav(pokeExistsOnList);
   },[])
 
   function openPage(){
@@ -39,11 +41,26 @@ const Card = ( { pokemon } : IProps ) => {
   }
 
   function toggleFav(){
-    const newValue = !isFav; 
+    const _isFav = !isFav; 
+    setIsFav(_isFav);
+    try{
+      
+      // @ts-ignore
+      const oldFavs : []  = JSON.parse(localStorage.getItem("favs"));
+      let newFavs = [];
+      newFavs.push(pokemon.name)
+      oldFavs && Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
+      // @ts-ignore, adding this pokemon from fav list
+      if(_isFav) return localStorage.setItem("favs", JSON.stringify(newFavs));
+      
+      // @ts-ignore, removing this pokemon from fav list
+      const newList = JSON.parse(localStorage.getItem('favs'))
+      let _newFavs = newList.filter((item:any)=> item !== pokemon.name);
+      localStorage.setItem("favs", JSON.stringify(_newFavs));
 
-    // newValue ? localStorage.addItem("") : localStorage.removeItem({});
-
-    setIsFav(newValue);
+    }catch(err){
+      console.log(err);
+    }
   }
 
   return (
