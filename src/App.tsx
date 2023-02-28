@@ -34,7 +34,7 @@ function App() {
       {/* <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/> */}
       
       {/* <Home isLoading={isLoading} pokemons={pokemons} /> */}
-      <Home isLoading={isLoading} pokemons={favPokes} />
+      <Home isLoading={isLoading} pokemons={pokemons} />
       <MyPokedex isLoading={isLoading} pokemons={favPokes}/>
 
     </div>
