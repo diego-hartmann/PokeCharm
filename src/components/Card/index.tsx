@@ -1,13 +1,9 @@
 import css from './index.module.css';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { favList } from '../../utils/favList';
 
-interface IProps {
-  pokemon:any,
-}
+interface IProps { pokemon : any }
 const Card = ( { pokemon } : IProps ) => {
-  
-  const [id, setId] = useState<number>(pokemon.id);
   
   // default
   const front_default : string = pokemon.sprites.front_default;
@@ -28,18 +24,23 @@ const Card = ( { pokemon } : IProps ) => {
   const front_default_art : string = pokemon.sprites.other['official-artwork'].front_default;
   const front_shiny_art : string = pokemon.sprites.other['official-artwork'].front_shiny;
 
+
+  // both id and isFav states are used to handle the favorite list regarting this pokemon.
+  const [id, setId] = useState<number|null>(null);
   const [ isFav, setIsFav ] = useState(false);
-  
 
-
-  
   useEffect( ()=> {
+    // here, I am updating the isFav state based on othe content of storage.favList.
     setIsFav( favList.get()?.includes(pokemon.id) );
-    console.log(pokemon.id);
+    // also, updating the id based on the pokemon obj passed by props.
     setId(pokemon.id);
   }, [setIsFav, isFav, pokemon] )
 
 
+  /**
+   * This method opens the page for this especific pokemon,
+   * showing its information.
+   */
   function openPage(){
     // RouteAPI
     console.clear();
@@ -57,6 +58,7 @@ const Card = ( { pokemon } : IProps ) => {
 
   function toggleFav(){
 
+    // toggling the value
     const _isFav = !isFav; 
     
     // setting the visual state
@@ -64,22 +66,25 @@ const Card = ( { pokemon } : IProps ) => {
 
     try{
       
-      // adding this pokemon from fav list
-      if(_isFav) {
-        if(isFav) return;
-        const oldFavs = favList.get();
-        let newFavs = [];
-        newFavs.push(id)
-        oldFavs && Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
-        favList.set(newFavs);
-        return;
-      };
+      // getting the value from the storage list
+      const oldFavs = favList.get();
+      // initing a new array to update the oldFavs array
+      let newFavs = [];
 
-      // otherwise, remove this pokemon from fav list
-      if(!isFav) return;
-      const newList = favList.get();
-      let _newFavs = newList.filter( ( item:any ) => item !== id );
-      favList.set(_newFavs);
+      // adding this pokemon to fav list
+      if(_isFav) {
+        // adding this new pokemon into the new list.
+          newFavs.push(id)
+          // then, adding all ints content into the new array too.
+          Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
+      }else{
+        // otherwise, remove this pokemon from fav list
+        // filtering it without the current pokemon
+        newFavs = oldFavs.filter( ( item:any ) => item !== id );
+      }
+
+      // replaicing the old list with the newer one.
+      favList.set(newFavs); 
 
     }catch(err){
       console.log(err);

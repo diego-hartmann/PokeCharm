@@ -8,5 +8,6 @@
 
 .flame {
     font-size: 2rem;
-  animation: wiggle 2.5s infinite;
+    animation: wiggle 2.5s infinite;
+    filter: drop-shadow(0 0 5px orange);
 }

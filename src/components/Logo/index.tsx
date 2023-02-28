@@ -12,7 +12,7 @@ const index = () => {
         textShadow: `-${borderSize}px -${borderSize}px 0 ${borderColor}, ${borderSize}px -${borderSize}px 0 ${borderColor}, -${borderSize}px ${borderSize}px 0 ${borderColor}, ${borderSize}px ${borderSize}px 0 ${borderColor}`
     }
 
-    {/* @ts-ignore */}
+    // local Component
     const Flame = () => <span className={css.flame}>🔥</span>;
     
     return (
