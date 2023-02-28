@@ -7,7 +7,7 @@ function App() {
   const { data, isLoading, errorMessage, isSuccess } = useGet('pokemon');
   return (
     <div className="App">
-      <Loader message='Getting Pokémons...' />
+      <Loader message='Getting Pokémons' />
       {
         isLoading && <Loader message='Fetching pokemón list' />
       }

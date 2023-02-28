@@ -7,12 +7,12 @@ interface IProps {
 
 const PreBuildedSpinner = () => <div className={spin.lds_ripple}><div></div><div></div></div>;
 
-const Loader = ( { message = "Loading..." } : IProps ) => {
+const Loader = ( { message = "LOADING" } : IProps ) => {
   return (
     <div className={css.container}>
         <div className={css.content}>
-          <PreBuildedSpinner />
-          <div className={css.message}>{message}</div>
+          <div className={css.spinnerContainer}> <PreBuildedSpinner /> </div>
+          <div className={css.message}>{message.toUpperCase()}</div>
         </div>
     </div>
   )
