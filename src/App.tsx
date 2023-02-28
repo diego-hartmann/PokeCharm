@@ -9,7 +9,9 @@ function App() {
   const { pokemons, isLoading, errorMessage, isSuccess } = usePokeList();
 
 
-  const favoritesPokemons = pokemons.filter((item:any) => localStorage.getItem("favs")?.includes(item.name))
+  const pokemonNames = pokemons.map((item:any) => item.name);
+  const favoritesPokemons = pokemonNames.filter((name:any) => localStorage.getItem("favs")?.includes(name))
+
 
   return (
     <div className="App">
