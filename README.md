@@ -32,7 +32,7 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 <img src="https://static-00.iconduck.com/assets.00/react-router-icon-512x279-zswz065s.png" width="90px" height="50px" />
 
-
+[React-Paginate](https://github.com/AdeleD/react-paginate): A ReactJS component to render a pagination.
 
 ## Functional requirements:
 ✔️ The user should be able to see a main screen with a list of all Pokémons (with 
