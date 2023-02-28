@@ -14,6 +14,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 5px;
 }
 .line{
     width: fit-content;
@@ -23,8 +24,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: purple;
+    transition: 0.2s;
 }
+
 .selector{
     margin-top: 12px;
     padding: 8px;
