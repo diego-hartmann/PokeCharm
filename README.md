@@ -24,7 +24,7 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 <img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="110px" height="50px" />
 
-[Jest](https://jestjs.io/): Jest was added into dependencies so the components and functions can be tested. 
+[Jest](https://jestjs.io/) was added into dependencies so the components and functions can be tested. 
 
 <img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" width="50px" height="50px" />
 
