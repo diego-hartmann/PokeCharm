@@ -28,7 +28,7 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 <img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" width="50px" height="50px" />
 
-[Router](https://reactrouter.com/en/main): ```yarn add react-router-dom localforage match-sorter sort-by``` to donwload the dependencies for route managment.
+[Router](https://reactrouter.com/en/main): ```yarn add react-router-dom``` to donwload the dependencies for route managment.
 
 <img src="https://static-00.iconduck.com/assets.00/react-router-icon-512x279-zswz065s.png" width="90px" height="50px" />
 
