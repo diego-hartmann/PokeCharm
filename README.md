@@ -1,6 +1,8 @@
 ## Intro
 This repository is the source code for [PokeCharm](https://poke-charm.vercel.app), a web application that shows Pokémons and their information, such as names, images and descriptions.
 
+![alt text](https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png)
+
 ## Deployment
 [PokeCharm](https://poke-charm.vercel.app) is available on https://poke-charm.vercel.app.
 
