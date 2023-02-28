@@ -5,10 +5,10 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 ## PokeAPI:
 This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from their oficial API.
 
-<img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" width="50%" height="50%" />
+<img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" width="30%" height="30%" />
 
 ## Techs used to this project and steps of their installations:
-[Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
+[Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment.
 
 <img src="https://seeklogo.com/images/Y/yarn-logo-F5E7A65FA2-seeklogo.com.png" width="50px" height="50px" />
 
@@ -16,7 +16,7 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="50px" height="50px" />
 
-[ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
+[ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in React). 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="55px" height="50px" />
 
