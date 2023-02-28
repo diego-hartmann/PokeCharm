@@ -1,6 +1,7 @@
 ## Intro
 This repository is the source code for [PokeCharm](https://poke-charm.vercel.app), a web application that shows Pokémons and their information, such as names, images and descriptions. [PokeCharm](https://poke-charm.vercel.app) is available on https://poke-charm.vercel.app.
-<img src="https://static.wikia.nocookie.net/pokemonet/images/8/87/004CharmanderFRLG.png/revision/latest?cb=20130505000902&path-prefix=pt-br" width="20%" height="20%" />
+
+<img src="https://static.wikia.nocookie.net/pokemonet/images/8/87/004CharmanderFRLG.png/revision/latest?cb=20130505000902&path-prefix=pt-br" width="10%" height="10%" />
 
 ## PokeAPI:
 This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from their oficial API.
