@@ -38,7 +38,7 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 ✔️ The user should be able to see a main screen with a list of all Pokémons (with 
 corresponding name and image for each of them).
 
-⚠️ In the main page: apply pagination in the list of Pokémons.
+✔️ In the main page: apply pagination in the list of Pokémons.
 
 ⚠️ From the main page, while clicking a Pokémon, the user should be able to navigate to 
 another page containing the details of that Pokémon.
