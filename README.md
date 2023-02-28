@@ -43,7 +43,7 @@ corresponding name and image for each of them).
 ⚠️ From the main page, while clicking a Pokémon, the user should be able to navigate to 
 another page containing the details of that Pokémon.
 
-⚠️ In the Pokémon details page, the user should see at least 6 descriptions, the image and 
+✔️ In the Pokémon details page, the user should see at least 6 descriptions, the image and 
 the name of one Pokémon.
 
 ⚠️ In the Pokémon detail page, the user should be able to favorite the Pokémon.
@@ -58,7 +58,7 @@ of them).
 ✔️ To get the list of Pókemons and their details, use the PokéAPI: https://pokeapi.co/ (see 
 documentation for more details).
 
-⚠️ Usage of the local storage to handle the list of favorite Pokémons.
+✔️ Usage of the local storage to handle the list of favorite Pokémons.
 
 ⚠️ Usage of any UI framework adapted to React (Examples: Bootstrap, Semantic UI).
 
