@@ -5,6 +5,7 @@ import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Card from '../Card';
 import css from './style.module.css';
+import './selected.css'
 
 // Example items, to simulate fetching from another resources.
 
@@ -35,9 +36,13 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
 
   // Invoke when user click to request another page.
   const handlePageClick = ( event : any ) => {
-    console.log('clicked', event);
     const newOffset = (event.selected * pokemonsPerPage) % pokemons.length;
     setItemOffset(newOffset);
+    console.log(event.selected)
+
+    // const container = document.querySelector('[aria-label="Pagination"]');
+    // const selected = container?.querySelector('.selected');
+    // selected.style
   };
 
   return (

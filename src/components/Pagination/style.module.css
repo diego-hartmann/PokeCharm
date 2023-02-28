@@ -58,14 +58,3 @@
     transform: translateY(-2px);
     border-bottom: 2px solid rgb(92, 0, 92);
 }
-
-.selector > li:focus-within{
-    transform: translateY(2px) !important;
-    border:none !important;
-    background-color:  rgb(56, 0, 56) !important;
-}
-.selector > li> a:focus{
-    color: #fff;
-    filter: drop-shadow(0 0 5px #fff);
-
-}
