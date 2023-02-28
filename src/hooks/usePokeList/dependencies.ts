@@ -1,7 +1,8 @@
 import { AxiosResponse } from 'axios';
+import { IPokemon } from '../../data/@types/IPokemon';
 
 export interface IResult {
-    pokemons : [],
+    pokemons : IPokemon[],
     isLoading : boolean,
     isSuccess : boolean,
     errorMessage : string

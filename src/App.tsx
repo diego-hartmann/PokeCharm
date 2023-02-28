@@ -7,40 +7,20 @@ import { favList } from './utils/favList';
 import MyPokedex from './pages/MyPokedex';
 import PokeInfo from './pages/PokeInfo';
 
-
+import Context from './context';
 
 function App() {
 
-  const { pokemons, isLoading } = usePokeList();
-
-  const [favPokes, setFavPokes] = useState<any[]>([]);
-
-  
-  useEffect(()=>{
-    
-    if(!pokemons) return () => console.log("No pokemon fetched yet.");
-
-    const FavList : any[] = favList.get();
-    const newList : any[] = [];
-    pokemons.forEach( ( poke : any ) => {
-      if(FavList.includes(poke.id)){
-        newList.push(poke);
-      }
-    });
-
-    setFavPokes(newList);
-
-  }, [pokemons, favPokes])
-
   return (
     <div className="App">
-      {/* <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/> */}
+
+      {/* <Routes> */}
+        <Home />
+        <MyPokedex/>
+        {/* <PokeInfo/> */}
+      {/* </Routes> */}
       
-      {/* <Home isLoading={isLoading} pokemons={pokemons} /> */}
-      <Home isLoading={isLoading} pokemons={pokemons} />
-      <MyPokedex isLoading={isLoading} pokemons={favPokes}/>
-      {/* <PokeInfo isLoading={isLoading} pokemons={pokemons} /> */}
-      
+
     </div>
 
   );

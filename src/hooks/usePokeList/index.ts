@@ -6,6 +6,8 @@ import axios, { CancelTokenSource } from 'axios';
 
 // importing our custom types
 import { IResult } from './dependencies';
+import { IPokemon } from '../../data/@types/IPokemon';
+
 
 /**
  * Hook for making GET requests to POKEAPI. 
@@ -23,7 +25,7 @@ const usePokeList = ( count : number = 150) => {
     // Also, it will prevent any error by changing the default value of the useState parameter by mistake.
     
     // holds the state for the request data result. Starts as an empty list.
-    const [ pokemons, setPokemons ] = useState<[]>([]);
+    const [ pokemons, setPokemons ] = useState<IPokemon[]>([]);
     
     // specifies if the request is in loading process or not. Starts as true.
     const [ isLoading, setIsLoading ] = useState<boolean>(true);

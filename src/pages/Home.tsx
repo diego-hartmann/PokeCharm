@@ -1,23 +1,21 @@
 import Loader from '../components/Loader';
 import Pagination from '../components/Pagination';
 import Header from '../patterns/Header';
+import Context from '../context';
+import { useContext } from 'react';
 
 
-interface IProps{
-    isLoading: boolean;
-    pokemons: any[],
-}
-
-const Home = ( appState : IProps ) => {
+const Home = ( ) => {
+    const { isLoading, pokemons } = useContext(Context);
   return (
     <>
         {
-            appState.isLoading ? 
+            isLoading ? 
             <Loader message='Getting Pokemóns list...'/>
             :
             <>
                 <Header/>
-                isSuccess && <Pagination pokemons={appState.pokemons} pokemonsPerPage={12} /> 
+                isSuccess && <Pagination pokemonsToShow={pokemons} pokemonsPerPage={12} /> 
             </>
         }
     </>

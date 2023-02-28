@@ -1,17 +1,15 @@
 import Pagination from "../components/Pagination"
 import Header from "../patterns/Header";
-
-interface IProps{
-  isLoading: boolean;
-  pokemons: any[],
-}
-
-const MyPokedex = ( appSate : IProps) => {
+import { useContext } from "react";
+import Context from "../context";
+const MyPokedex = ( ) =>  
+{
+  const { favPokes } = useContext(Context);
   return (
-    <>
-      <Header/>
-      <Pagination pokemons={appSate.pokemons} pokemonsPerPage={4}/>
-    </>
+  <>
+    <Header/>
+    <Pagination pokemonsToShow={ favPokes } pokemonsPerPage={4}/>
+  </>
   )
 }
 

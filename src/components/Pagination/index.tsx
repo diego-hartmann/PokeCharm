@@ -6,7 +6,7 @@ import ReactPaginate from 'react-paginate';
 import Card from '../Card';
 import css from './style.module.css';
 import './selected.css'
-
+import { IPokemon } from '../../data/@types/IPokemon';
 // Example items, to simulate fetching from another resources.
 
 const Items = ({ currentItems }:any) => {
@@ -19,10 +19,11 @@ const Items = ({ currentItems }:any) => {
 
 interface IProps {
     pokemonsPerPage : number,
-    pokemons: any[];
+    pokemonsToShow: IPokemon[],
 }
 
-const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
+const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
+
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
@@ -31,12 +32,12 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + pokemonsPerPage;
-  const currentItems = pokemons.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(pokemons.length / pokemonsPerPage);
+  const currentItems = pokemonsToShow.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(pokemonsToShow.length / pokemonsPerPage);
 
   // Invoke when user click to request another page.
   const handlePageClick = ( event : any ) => {
-    const newOffset = (event.selected * pokemonsPerPage) % pokemons.length;
+    const newOffset = (event.selected * pokemonsPerPage) % pokemonsToShow.length;
     setItemOffset(newOffset);
     console.log(event.selected)
 
