@@ -1,21 +1,4 @@
 import './App.css';
-import Home from './pages/Home';
+import RoutesApp from './routes';
 
-function App() {
-
-  return (
-    <div className="App">
-
-      {/* <Routes> */}
-        <Home />
-        {/* <PokeInfo /> */}
-        {/* <MyPokedex /> */}
-      {/* </Routes> */}
-      
-
-    </div>
-
-  );
-}
-
-export default App;
+export default () => <div className="App"> <RoutesApp/> </div>;

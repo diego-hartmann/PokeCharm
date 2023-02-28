@@ -1,11 +1,13 @@
 import css from './index.module.css';
+import { useNavigate } from 'react-router-dom'
 
 const PagesMenu = () => {
+  const navigateTo = useNavigate();
 
   return (
     <div className={css.container}>
-        <p className={css.btn}>Home</p>
-        <p className={css.btn}>Pokedex</p>
+        <p onClick={()=>navigateTo('/')} className={css.btn}>Home</p>
+        <p onClick={()=>navigateTo('/pokedex')} className={css.btn}>Pokedex</p>
     </div>
   )
 }

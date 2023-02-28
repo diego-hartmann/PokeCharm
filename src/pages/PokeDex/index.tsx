@@ -2,7 +2,7 @@ import Pagination from "../../components/Pagination"
 import Header from "../../patterns/Header";
 import { useContext } from "react";
 import Context from "../../context";
-const MyPokedex = ( ) =>  
+const PokeDex = ( ) =>  
 {
   const { favPokes } = useContext(Context);
   return (
@@ -13,4 +13,4 @@ const MyPokedex = ( ) =>
   )
 }
 
-export default MyPokedex
+export default PokeDex
