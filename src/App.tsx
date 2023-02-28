@@ -27,7 +27,7 @@ function App() {
 
     setFavPokes(newList);
 
-  }, [pokemons])
+  }, [pokemons, favPokes])
 
   return (
     <div className="App">

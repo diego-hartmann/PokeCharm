@@ -17,7 +17,6 @@
     gap: 5px;
 }
 .line{
-    width: fit-content;
     flex-shrink: 0;
     flex-grow: 1;
     width: fit-content;
@@ -26,6 +25,7 @@
     align-items: center;
     transition: 0.2s;
 }
+
 
 .selector{
     margin-top: 12px;
