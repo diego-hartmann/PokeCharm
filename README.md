@@ -1,15 +1,17 @@
 ## Intro
 This repository is the source code for [PokeCharm](https://poke-charm.vercel.app), a web application that shows Pokémons and their information, such as names, images and descriptions. [PokeCharm](https://poke-charm.vercel.app) is available on https://poke-charm.vercel.app.
 
-![alt text](https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png)
 
-## Data origin:
+## PokeAPI:
 This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from their oficial API.
+![alt text](https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png)
 
 ## Techs used to this project and steps of their installations:
 1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Yarn-logo-kitten.svg/1200px-Yarn-logo-kitten.svg.png)
 
 2. [TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety. 
+![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/TypeScript_Logo_%28Blue%29.svg/2560px-TypeScript_Logo_%28Blue%29.svg.png)
 
 3. [ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
 
