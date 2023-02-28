@@ -1,5 +1,5 @@
-## Description
-Search for your favorite Pokémon on [PokeCharm](https://poke-charm.vercel.app)! This is a web application that shows Pokémons and their information, such as names, images and descriptions.
+## Intro
+This repository is the source code for [PokeCharm](https://poke-charm.vercel.app), a web application that shows Pokémons and their information, such as names, images and descriptions.
 
 ## Deployment
 [PokeCharm](https://poke-charm.vercel.app) is available on https://poke-charm.vercel.app.
