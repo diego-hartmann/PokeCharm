@@ -5,17 +5,24 @@ Available on [PokeCharm](https://poke-charm.vercel.app) website.
 This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from this oficial API.
 
 ## Techs used to this project and steps of their installations:
-[Axios](https://axios-http.com/ptbr/docs/intro) for fetching to the GET PokeAPI endpoint. 
+1. [Yarn](https://yarnpkg.com/).
+- First, it was decided to use Yarn for fast package managment,
 
-[ContextAPI](https://reactjs.org/docs/context.html) for handling states.
+2. [TypeScript](https://www.typescriptlang.org/).
+- then, the project was initialized with TypeScript for type safety. 
 
-[Jest](https://jestjs.io/) for testing functions and components.
+3. [ContextAPI](https://reactjs.org/docs/context.html).
+- useContext hook was choosen to manage state context (it is a native feature in react). 
 
-[Router](https://reactrouter.com/en/main) for swapping pages.
+4. [Axios](https://axios-http.com/ptbr/docs/intro). 
+- Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
 
-[TypeScript](https://www.typescriptlang.org/) for type safety.
+5. [Jest](https://jestjs.io/).
+- Jest was added into dependencies so the components and functions can be tested. 
 
-[Yarn](https://yarnpkg.com/) for fast package managment.
+6. [Router](https://reactrouter.com/en/main) for swapping pages.
+- ```bash yarn add react-router-dom localforage match-sorter sort-by ``` to donwload the dependencies for route managment.
+
 
 
 ## Functional requirements:
