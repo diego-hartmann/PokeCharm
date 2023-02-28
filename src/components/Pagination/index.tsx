@@ -11,7 +11,7 @@ import css from './style.module.css';
 const Items = ({ currentItems }:any) => {
   return (
     <div className={css.items} >
-      {currentItems && currentItems.map((item:any, key:number) => <Card key={key} pokemon={item} />)}
+      {currentItems?.map((item:any, key:number) => <Card key={key} pokemon={item} />)}
     </div>
   );
 }
@@ -30,7 +30,6 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + pokemonsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = pokemons.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(pokemons.length / pokemonsPerPage);
 

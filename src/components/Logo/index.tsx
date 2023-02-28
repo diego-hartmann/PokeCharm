@@ -13,13 +13,13 @@ const index = () => {
     }
 
     {/* @ts-ignore */}
-    const Flame = ({delay}:{delay:number}) => <span className={css.wiggle} style={ { fontSize: '2rem', '--delay': `${delay}s`} }>🔥</span>;
+    const Flame = () => <span className={css.flame}>🔥</span>;
     
     return (
         <div style={{display:'flex', width: '100%', justifyContent:'center', alignItems:'center', gap:'1rem'}}>
-            <Flame delay={0} />
+            <Flame />
             <h1 data-style="poke" style={textStyle}>PokeCharm</h1>
-            <Flame delay={1} />
+            <Flame />
         </div>
     )
 }

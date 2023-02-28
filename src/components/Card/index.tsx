@@ -1,11 +1,13 @@
 import css from './index.module.css';
 import { useEffect, useState } from 'react';
+import { favList } from '../../utils/favList';
 
 interface IProps {
-  pokemon:any
+  pokemon:any,
 }
 const Card = ( { pokemon } : IProps ) => {
-  const name : string = pokemon.name;
+  
+  const [id, setId] = useState(pokemon.id);
   
   // default
   const front_default : string = pokemon.sprites.front_default;
@@ -28,16 +30,16 @@ const Card = ( { pokemon } : IProps ) => {
 
   const [ isFav, setIsFav ] = useState(false);
   
-  
-  // @ts-ignore
-  const getFavList = () => JSON.parse(localStorage.getItem("favs"))
 
-  const setFavList = ( value : string[] ) => localStorage.setItem("favs", JSON.stringify(value));
 
-  const pokeExistsOnList = getFavList()?.includes(pokemon.name);
+  const pokeExistsOnList = () => favList.get()?.includes(id);
 
-  // @ts-ignore
-  useEffect( ()=> setIsFav( pokeExistsOnList ), [] )
+  useEffect( ()=> {
+    setIsFav( pokeExistsOnList() )
+    setId(pokemon.id);
+    console.log(favList);
+    console.log(id);
+  }, [pokemon.id] )
 
 
   function openPage(){
@@ -66,20 +68,20 @@ const Card = ( { pokemon } : IProps ) => {
       
       // adding this pokemon from fav list
       if(_isFav) {
-        if(pokeExistsOnList) return;
-        const oldFavs : [] = getFavList();
+        if(pokeExistsOnList()) return;
+        const oldFavs : [] = favList.get();
         let newFavs = [];
-        newFavs.push(pokemon.name)
+        newFavs.push(id)
         oldFavs && Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
-        setFavList(newFavs);
+        favList.set(newFavs);
         return;
       };
 
       // otherwise, remove this pokemon from fav list
       if(!pokeExistsOnList) return;
-      const newList = getFavList();
-      let _newFavs = newList.filter( ( item:any ) => item !== pokemon.name );
-      setFavList(_newFavs);
+      const newList = favList.get();
+      let _newFavs = newList.filter( ( item:any ) => item !== id );
+      favList.set(_newFavs);
 
     }catch(err){
       console.log(err);
@@ -88,7 +90,7 @@ const Card = ( { pokemon } : IProps ) => {
 
   return (
     <div className={css.container} data-selected={isFav}>
-      <div className={css.name} >{name}</div>
+      <div className={css.name} >{pokemon.name}</div>
       <img onClick={openPage} className={css.sprite} src={front_default_dreamworld} />
       <div className={css.fav}>
         <i onClick={toggleFav} data-selected={isFav} className="fas fa-star"></i>
