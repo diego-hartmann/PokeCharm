@@ -4,7 +4,7 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 ## PokeAPI:
 This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from their oficial API.
-![alt text](https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png)
+<img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png"  width="50%" height="50%">
 
 ## Techs used to this project and steps of their installations:
 1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
