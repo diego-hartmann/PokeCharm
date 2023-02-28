@@ -19,7 +19,7 @@ const Items = ({ currentItems }:any) => {
 
 interface IProps {
     pokemonsPerPage : number,
-    pokemons: [];
+    pokemons: any[];
 }
 
 const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {

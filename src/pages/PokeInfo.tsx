@@ -13,7 +13,7 @@ interface IPokemon{
     pokemon : IPokemonInfo,
 }
 
-const PokemonPage = ( { pokemon } : IPokemon ) => {
+const PokeInfo = ( { pokemon } : IPokemon ) => {
   return (
     <>
         <div>Name: {pokemon.name}</div>
@@ -29,4 +29,4 @@ const PokemonPage = ( { pokemon } : IPokemon ) => {
   )
 }
 
-export default PokemonPage
+export default PokeInfo

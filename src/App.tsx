@@ -1,38 +1,42 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import Loader from './components/Loader';
 import usePokeList from './hooks/usePokeList';
-import Pagination from './components/Pagination';
-import Logo from './components/Logo'
+import Home from './pages/Home';
+import { favList } from './utils/favList';
+
+import MyPokedex from './pages/MyPokedex';
 
 function App() {
 
-  const { pokemons, isLoading, errorMessage, isSuccess } = usePokeList();
+  const { pokemons, isLoading } = usePokeList();
 
+  const [favPokes, setFavPokes] = useState<any[]>([]);
 
-  const pokemonNames = pokemons.map((item:any) => item.name);
-  const favoritesPokemons = pokemonNames.filter((name:any) => localStorage.getItem("favs")?.includes(name))
+  
+  useEffect(()=>{
+    
+    if(!pokemons) return () => console.log("No pokemon fetched yet.");
 
+    const FavList : any[] = favList.get();
+    const newList : any[] = [];
+    pokemons.forEach( ( poke : any ) => {
+      if(FavList.includes(poke.id)){
+        newList.push(poke);
+      }
+    });
+
+    setFavPokes(newList);
+
+  }, [pokemons])
 
   return (
     <div className="App">
-      
-      {/* FAVORITES */}
-      
-      {/* <Pagination pokemons={favoritesPokemons} pokemonsPerPage={12} */}
-      
-      
-      {/* ALL OF THEM  */}
       {/* <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/> */}
-      {
-        isLoading ? 
-          <Loader message='Getting Pokemóns list...'/>
-          :
-          <>
-            <Logo />
-            isSuccess && <Pagination pokemons={pokemons} pokemonsPerPage={12} /> 
-          </>
-      }
-    
+      
+      {/* <Home isLoading={isLoading} pokemons={pokemons} /> */}
+      <Home isLoading={isLoading} pokemons={favPokes} />
+      <MyPokedex isLoading={isLoading} pokemons={favPokes}/>
+
     </div>
 
   );
