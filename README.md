@@ -14,12 +14,10 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="50px" height="50px" />
 
 3. [ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="50px" height="50px" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="60px" height="50px" />
 
 4. [Axios](https://axios-http.com/ptbr/docs/intro): Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
 <img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="110px" height="50px" />
-
-
 
 5. [Jest](https://jestjs.io/): Jest was added into dependencies so the components and functions can be tested. 
 <img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" width="50px" height="50px" />
