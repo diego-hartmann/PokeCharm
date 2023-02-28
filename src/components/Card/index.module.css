@@ -99,7 +99,7 @@
     height: 20px;
 }
 .fav i{
-    color: #ccc;
+    color: #cccccc4d;
     transform: scale(1);
     transition: .15s;
     cursor: pointer;
@@ -107,7 +107,7 @@
 .fav i:hover {
     color:#fff;
     transform: scale(1.2);
-    filter: drop-shadow(0 0 5px yellow);
+    /* filter: drop-shadow(0 0 5px yellow); */
 }
 
 .container[data-selected="true"] .sprite{
