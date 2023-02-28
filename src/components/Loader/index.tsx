@@ -1,18 +1,22 @@
 import css from './index.module.css';
 import spin from './spinner.module.css';
-
+import circle from './circle.module.css';
 interface IProps {
-  message: string,
+  message?: string,
 }
 
-const PreBuildedSpinner = () => <div className={spin.lds_ripple}><div></div><div></div></div>;
+const Spiner = () => <div className={spin.lds_ripple}><div></div><div></div></div>;
+const Circle = () => <div className={circle.lds_circle}><div></div></div>;
 
-const Loader = ( { message = "LOADING" } : IProps ) => {
+const Loader = ( { message = "Loading..." } : IProps ) => {
   return (
     <div className={css.container}>
         <div className={css.content}>
-          <div className={css.spinnerContainer}> <PreBuildedSpinner /> </div>
-          <div className={css.message}>{message.toUpperCase()}</div>
+          <div className={css.iconsContainer}>
+            <div className={css.spinnerContainer}> <Spiner /> </div>
+            <div className={css.circleContainer}> <Circle /> </div>
+          </div>
+          <div data-style={'poke'} className={css.message}>{message.toUpperCase()}</div>
         </div>
     </div>
   )

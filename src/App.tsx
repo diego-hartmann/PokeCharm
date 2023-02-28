@@ -1,19 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-import useGet from './hooks/useGet';
 import Loader from './components/Loader';
-
+import usePokeList from './hooks/usePokeList';
+import Card from './components/Card';
 function App() {
-  const { data, isLoading, errorMessage, isSuccess } = useGet('pokemon');
+
+  const { pokemons, isLoading, errorMessage, isSuccess } = usePokeList(33);
+
+
+  
   return (
     <div className="App">
-      <Loader message='Getting Pokémons' />
-      {
-        isLoading && <Loader message='Fetching pokemón list' />
-      }
-        {
-          isSuccess && data?.map( (element:any, index:number) => <div key={index}>{element.name}</div> )
-        }
+        <>
+        {isLoading && <Loader/>}
+        
+        {isSuccess && pokemons.map( (pokemon:any, index:number) => {
+          console.log(pokemon.sprites)
+          return(
+            <Card key={index} pokemon={pokemon}/>
+          )  
+        }) }
+
+        </>
     </div>
 
   );

@@ -5,15 +5,14 @@ import { useState, useEffect } from 'react';
 import axios, { CancelTokenSource } from 'axios';
 
 // importing our custom types
-import { IResult, TPromiseToAxiosResponse } from './dependencies';
-
+import { IResult } from './dependencies';
 
 /**
  * Hook for making GET requests to POKEAPI. 
- * @param { string } endpoint - The endpoint for the POKEAPI request. 
+ * @param count the number of pokemons to be displayed.
  * @returns an object holding the states of the request.
  */
-const useGet = ( endpoint : string ) => {
+const usePokeList = ( count : number = 150) => {
 
 
 
@@ -24,7 +23,7 @@ const useGet = ( endpoint : string ) => {
     // Also, it will prevent any error by changing the default value of the useState parameter by mistake.
     
     // holds the state for the request data result. Starts as an empty list.
-    const [ data, setData ] = useState<[]>([]);
+    const [ pokemons, setPokemons ] = useState<[]>([]);
     
     // specifies if the request is in loading process or not. Starts as true.
     const [ isLoading, setIsLoading ] = useState<boolean>(true);
@@ -48,22 +47,29 @@ const useGet = ( endpoint : string ) => {
         const axiosSource : CancelTokenSource = axios.CancelToken.source();
         
         // axios promise config
-        const url = `https://pokeapi.co/api/v2/${endpoint}/`;
         const config = { cancelToken: axiosSource.token };
 
         // bootstraping the axios promisse into another function for organization and maintaince. 
-        const makeReq : TPromiseToAxiosResponse = async () => await axios.get( url, config );
+        // const makeReq : TPromiseToAxiosResponse = async () => await axios.get( url, config );
+
+        let promises = [];
+        for (let i = 1; i <= count; i++) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+            promises.push(axios.get(url, config));
+        }
 
         // executing the request once the hook is called by the caller Component.
-        makeReq()
+        Promise.all(promises)
         // defining the data state based on the response data.
-        .then( response  => { 
-            setData(response?.data?.results); // accessing the list of pokemons
+        .then( ( requests : any )  => { 
+            // accessing the list of pokemons
+            const pokeList = requests.map( ( req : any ) => req.data );
+            setPokemons(pokeList);
             setIsSuccess(true);
         })
         // defining the error message based on the enpoint.
         .catch( error => {
-            setErrorMessage( `An error ocurred on GET /${endpoint}:\n${error}` );
+            setErrorMessage( `An error ocurred on GET pokemons:\n${error}` );
             setIsSuccess(false);
         })
         // cancelling loading once the request is over, regardless its result.
@@ -72,7 +78,7 @@ const useGet = ( endpoint : string ) => {
         // canceling the source once the component unmounts.
         return () => axiosSource.cancel();
 
-    }, [endpoint] )
+    }, [] )
     //#endregion ________________________________________________________________________________________
 
 
@@ -82,7 +88,7 @@ const useGet = ( endpoint : string ) => {
 
     //#region ==============-- RETURNING THE OBJECT WITH THE STATES --===================================
     // returning all the states at one object to be updated into the caller Component after finishing the useEffect callback.
-    const resultData : IResult = { data, isLoading, isSuccess, errorMessage }; 
+    const resultData : IResult = { pokemons, isLoading, isSuccess, errorMessage }; 
     return resultData;
     //#endregion ________________________________________________________________________________________
 
@@ -90,4 +96,4 @@ const useGet = ( endpoint : string ) => {
 
 }
 
-export default useGet;
+export default usePokeList;

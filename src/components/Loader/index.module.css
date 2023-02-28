@@ -14,13 +14,31 @@
     gap: 1rem;
 }
 
-.spinnerContainer{
+.iconsContainer{
+    display: grid;
+    place-items: center;
     width: 100px;
     height: 100px;
 }
+.spinnerContainer{
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    filter: drop-shadow(0 0 5px red);
+}
+
+.circleContainer{
+    width: 20%;
+    height: 20%;
+    grid-column: 1;
+    grid-row: 1;
+    filter: drop-shadow(0 0 5px yellow);
+    transform: rotate(90deg);
+}
 
 .message {
-    color: #ccc;
+    color:#ccc;
     animation-name: pulse;
     animation-duration: 3s;
     animation-timing-function: ease-in-out;

@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 export interface IResult {
-    data : [],
+    pokemons : [],
     isLoading : boolean,
     isSuccess : boolean,
     errorMessage : string

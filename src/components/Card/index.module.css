@@ -1,0 +1,50 @@
+.container{
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+    background-color: purple;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 2px solid #fff;
+}
+
+.name{
+    color: #fff;
+}
+
+.sprite {
+    display: block;
+    width: 50%;
+    transition: .2s ease-in-out;
+    transform: scale(1);
+    height: 50%;
+    object-fit: contain;
+    --stroke-pos: 1px;
+    --stroke-neg: -1px;
+    --stroke-color: #fff;
+    --stroke-blur : 0;
+    filter:
+        
+        /* white border */
+        drop-shadow(var(--stroke-pos) 0 var(--stroke-blur) var(--stroke-color)) 
+        drop-shadow(var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+        drop-shadow(0 var(--stroke-pos) var(--stroke-blur) var(--stroke-color))
+        drop-shadow(0 var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+        drop-shadow(var(--stroke-pos) var(--stroke-pos) var(--stroke-blur) var(--stroke-color)) 
+        drop-shadow(var(--stroke-pos) var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+        drop-shadow(var(--stroke-neg) var(--stroke-pos) var(--stroke-blur) var(--stroke-color))
+        drop-shadow(var(--stroke-neg) var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+        
+        /* shadow */
+        drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.658))
+    
+    ;
+}
+
+.container img:hover {
+    transform: scale(1.1);
+}
