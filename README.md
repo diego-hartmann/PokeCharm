@@ -8,10 +8,8 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 
 ## Techs used to this project and steps of their installations:
 1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
-![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Yarn-logo-kitten.svg/1200px-Yarn-logo-kitten.svg.png)
 
 2. [TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety. 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/TypeScript_Logo_%28Blue%29.svg/2560px-TypeScript_Logo_%28Blue%29.svg.png)
 
 3. [ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
 
