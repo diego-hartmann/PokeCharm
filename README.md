@@ -4,11 +4,14 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 <img src="https://static.wikia.nocookie.net/pokemonet/images/8/87/004CharmanderFRLG.png/revision/latest?cb=20130505000902&path-prefix=pt-br" width="10%" height="10%" />
 
 ## PokeAPI:
-This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from their oficial API.
+This web application is a [PokeAPI](https://pokeapi.co/) client. 
+
+
+## Techs used to this project and steps of their installations:
+[PokeAPI](https://pokeapi.co/): The original pokémon data. PokeCharm displays the data for each Pokémon from their oficial API.
 
 <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" width="20%" height="20%" />
 
-## Techs used to this project and steps of their installations:
 [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment.
 
 <img src="https://seeklogo.com/images/Y/yarn-logo-F5E7A65FA2-seeklogo.com.png" width="50px" height="50px" />
