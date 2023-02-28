@@ -47,13 +47,17 @@ const useGet = ( endpoint : string ) => {
         // creating axios source so we can get its token and cancel() it into unMount (return()=>...).
         const axiosSource : CancelTokenSource = axios.CancelToken.source();
         
+        // axios promise config
+        const url = `https://pokeapi.co/api/v2/${endpoint}/`;
+        const config = { cancelToken: axiosSource.token };
+
         // bootstraping the axios promisse into another function for organization and maintaince. 
-        const makeReq : TPromiseToAxiosResponse = async () => await axios.get( `https://pokeapi.co/api/v2/${endpoint}/`, { cancelToken: axiosSource.token } );
+        const makeReq : TPromiseToAxiosResponse = async () => await axios.get( url, config );
 
         // executing the request once the hook is called by the caller Component.
         makeReq()
         // defining the data state based on the response data.
-        .then( ( response : any ) => { 
+        .then( response  => { 
             setData(response?.data?.results); // accessing the list of pokemons
             setIsSuccess(true);
         })
@@ -62,7 +66,7 @@ const useGet = ( endpoint : string ) => {
             setErrorMessage( `An error ocurred on GET /${endpoint}:\n${error}` );
             setIsSuccess(false);
         })
-         // cancelling loading once the request is over, regardless its result.
+        // cancelling loading once the request is over, regardless its result.
         .finally( ()=> setIsLoading(false) );
 
         // canceling the source once the component unmounts.

@@ -1,0 +1,28 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.message {
+    color: #ccc;
+    animation-name: msg;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes msg {
+    0% { opacity: 100%; }
+    60% { opacity: 50%; }
+    70% { opacity: 0%; }
+    100% { opacity: 100%; }
+}
