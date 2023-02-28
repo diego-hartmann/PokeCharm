@@ -110,15 +110,10 @@
     filter: drop-shadow(0 0 5px yellow);
 }
 
-.container[data-selected="true"] .spriteContainer{
-
-}
-
-
-
 .container[data-selected="true"] .sprite{
     animation: spin .5s cubic-bezier(0, 0.2, 0.8, 1);
 }
+
  @keyframes spin {
     0% {
       transform: rotateY(0deg) translateY(0) scale(1.2);
@@ -131,7 +126,7 @@
     }
   } 
 
-.fav i[data-selected="true"]{
+  .container[data-selected="true"] .fav i{
     color:#fff;
     filter: drop-shadow(0 0 5px yellow);
     transform: scale(1.3);

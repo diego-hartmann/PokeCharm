@@ -96,7 +96,7 @@ const Card = ( { pokemon } : IProps ) => {
       <div className={css.name} >{pokemon.name}</div>
       <img onClick={openPage} className={css.sprite} src={front_default_dreamworld} />
       <div className={css.fav}>
-        <i onClick={toggleFav} data-selected={isFav} className="fas fa-star"></i>
+        <i onClick={toggleFav} className="fas fa-star"></i>
       </div>
     </div>
   )
