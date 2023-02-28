@@ -1,5 +1,5 @@
 import css from './index.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface IProps {
   pokemon:any
@@ -26,11 +26,33 @@ const Card = ( { pokemon } : IProps ) => {
   const front_default_art : string = pokemon.sprites.other['official-artwork'].front_default;
   const front_shiny_art : string = pokemon.sprites.other['official-artwork'].front_shiny;
 
+  const [ isFav, setIsFav ] = useState(false);
+
+  useEffect(()=>{
+    // localStorage.getItem(pokemon)
+    // setIsFav(localstorage)
+  },[])
+
+  function openPage(){
+    // RouteAPI
+    console.log(pokemon);
+  }
+
+  function toggleFav(){
+    const newValue = !isFav; 
+
+    // newValue ? localStorage.addItem("") : localStorage.removeItem({});
+
+    setIsFav(newValue);
+  }
 
   return (
-    <div className={css.container} >
+    <div className={css.container} data-selected={isFav}>
       <div className={css.name} >{name}</div>
-      <img className={css.sprite} src={front_default_dreamworld} />
+      <img onClick={openPage} className={css.sprite} src={front_default_dreamworld} />
+      <div className={css.fav}>
+        <i onClick={toggleFav} data-selected={isFav} className="fas fa-star"></i>
+      </div>
     </div>
   )
 }
