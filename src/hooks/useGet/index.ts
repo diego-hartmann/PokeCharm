@@ -53,8 +53,8 @@ const useGet = ( endpoint : string ) => {
         // executing the request once the hook is called by the caller Component.
         makeReq()
         // defining the data state based on the response data.
-        .then( response  => { 
-            response.data.content ? setData(response.data.content) : ( response.data && setData(response.data) );
+        .then( ( response : any ) => { 
+            setData(response?.data?.results); // accessing the list of pokemons
             setIsSuccess(true);
         })
         // defining the error message based on the enpoint.

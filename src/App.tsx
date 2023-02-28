@@ -3,29 +3,14 @@ import './App.css';
 import useGet from './hooks/useGet';
 
 function App() {
-  const { data, isLoading, errorMessage } = useGet('pokemon');
+  const { data, isLoading, errorMessage, isSuccess } = useGet('pokemon');
   return (
     <div className="App">
-      
-      {
-        !errorMessage && data.map( (element:any, index:number) => <div key={index}>{element.name}</div> )
-      }
-
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {
+          isSuccess && data?.map( (element:any, index:number) => <div key={index}>{element.name}</div> )
+        }
     </div>
+
   );
 }
 
