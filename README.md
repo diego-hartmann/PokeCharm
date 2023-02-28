@@ -5,23 +5,17 @@ Available on [PokeCharm](https://poke-charm.vercel.app) website.
 This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from this oficial API.
 
 ## Techs used to this project and steps of their installations:
-1. [Yarn](https://yarnpkg.com/).
-First, it was decided to use Yarn for fast package managment,
+1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
 
-2. [TypeScript](https://www.typescriptlang.org/).
-then, the project was initialized with TypeScript for type safety. 
+2. [TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety. 
 
-3. [ContextAPI](https://reactjs.org/docs/context.html).
-useContext hook was choosen to manage state context (it is a native feature in react). 
+3. [ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
 
-4. [Axios](https://axios-http.com/ptbr/docs/intro). 
-Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
+4. [Axios](https://axios-http.com/ptbr/docs/intro): Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
 
-5. [Jest](https://jestjs.io/).
-Jest was added into dependencies so the components and functions can be tested. 
+5. [Jest](https://jestjs.io/): Jest was added into dependencies so the components and functions can be tested. 
 
-6. [Router](https://reactrouter.com/en/main) for swapping pages.
-```yarn add react-router-dom localforage match-sorter sort-by``` to donwload the dependencies for route managment.
+6. [Router](https://reactrouter.com/en/main): ```yarn add react-router-dom localforage match-sorter sort-by``` to donwload the dependencies for route managment.
 
 
 
