@@ -17,7 +17,7 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="50px" height="50px" />
 
 4. [Axios](https://axios-http.com/ptbr/docs/intro): Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
-<img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="80px" height="50px" />
+<img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="90px" height="50px" />
 
 
 
@@ -25,7 +25,7 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 <img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" width="50px" height="50px" />
 
 6. [Router](https://reactrouter.com/en/main): ```yarn add react-router-dom localforage match-sorter sort-by``` to donwload the dependencies for route managment.
-<img src="https://static-00.iconduck.com/assets.00/react-router-icon-512x279-zswz065s.png" width="80px" height="50px" />
+<img src="https://static-00.iconduck.com/assets.00/react-router-icon-512x279-zswz065s.png" width="90px" height="50px" />
 
 
 
