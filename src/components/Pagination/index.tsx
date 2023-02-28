@@ -3,19 +3,16 @@
 
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import Card from '../Card';
+import css from './style.module.css';
 
 // Example items, to simulate fetching from another resources.
 
-function Items({ currentItems }:any) {
+const Items = ({ currentItems }:any) => {
   return (
-    <>
-      {currentItems &&
-        currentItems.map((item:any, key:number) => (
-          <div key={key+1}>
-            <h3>{key+1} {item.name}</h3>
-          </div>
-        ))}
-    </>
+    <div className={css.items} >
+      {currentItems && currentItems.map((item:any, key:number) => <Card key={key} pokemon={item} />)}
+    </div>
   );
 }
 
@@ -47,9 +44,10 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
   };
 
   return (
-    <>
+    <div className={css.container}>
       <Items currentItems={currentItems} />
       <ReactPaginate
+        className={css.selector}
         breakLabel="..."
         nextLabel="next >"
         onPageChange={handlePageClick}
@@ -58,7 +56,7 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
         previousLabel="< previous"
         renderOnZeroPageCount={()=>{}}
       />
-    </>
+    </div>
   );
 }
 
