@@ -23,9 +23,15 @@ function App() {
       
       {/* ALL OF THEM  */}
       {/* <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/> */}
-      <Logo />
-      { isLoading && <Loader message='Getting Pokemóns list...'/> }
-      { isSuccess && <Pagination pokemons={pokemons} pokemonsPerPage={12} /> }
+      {
+        isLoading ? 
+          <Loader message='Getting Pokemóns list...'/>
+          :
+          <>
+            <Logo />
+            isSuccess && <Pagination pokemons={pokemons} pokemonsPerPage={12} /> 
+          </>
+      }
     
     </div>
 

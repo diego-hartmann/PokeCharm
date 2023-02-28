@@ -57,7 +57,7 @@ const Pagination = ({ pokemons, pokemonsPerPage }:IProps) => {
         pageCount={pageCount}
         previousLabel="<"
         // @ts-ignore
-        renderOnZeroPageCount={<div></div>}
+        renderOnZeroPageCount={()=>{}}
       />
     </div>
   );
