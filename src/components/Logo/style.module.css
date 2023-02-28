@@ -1,8 +1,8 @@
 .title{
     --border-size: 3px;
     --border-size-minus: -3px;
-    --border-color: '#3d63b7';
-    color:'#fac705';
+    --border-color: #3d63b7;
+    color:#fac705;
     letter-spacing: '0.4rem';
     text-shadow: var(--border-size-minus) var(--border-size-minus) 0 var(--border-color),
                  var(--border-size) var(--border-size-minus) 0 var(--border-color),
