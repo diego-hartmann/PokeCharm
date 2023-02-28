@@ -3,12 +3,12 @@ import './App.css';
 import useGet from './hooks/useGet';
 
 function App() {
-  const { data } = useGet({endpoint:'pokemon'});
+  const { data, isLoading, errorMessage } = useGet('pokemon');
   return (
     <div className="App">
       
       {
-        data.map( (element:any, index:number) => <div key={index}>{element.name}</div> )
+        !errorMessage && data.map( (element:any, index:number) => <div key={index}>{element.name}</div> )
       }
 
       <header className="App-header">

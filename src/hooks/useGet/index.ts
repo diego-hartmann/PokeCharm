@@ -1,11 +1,11 @@
 // importing the hooks that are going to be bootstraped
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 // dealing with axios
 import axios, { CancelTokenSource } from 'axios';
 
 // importing our custom types
-import {  IProps, IResult, TPromiseToAxiosResponse } from './dependencies';
+import { IResult, TPromiseToAxiosResponse } from './dependencies';
 
 
 /**
@@ -13,12 +13,7 @@ import {  IProps, IResult, TPromiseToAxiosResponse } from './dependencies';
  * @param { string } endpoint - The endpoint for the POKEAPI request. 
  * @returns an object holding the states of the request.
  */
-const useGet = ({
-    endpoint,
-    onSuccess  = () => console.log("Succeded!"),
-    onError    = () => console.log("Error!"),
-    onFinished = () => console.log("Finished!"),
-} : IProps ) => {
+const useGet = ( endpoint : string ) => {
 
 
 
@@ -34,22 +29,13 @@ const useGet = ({
     // specifies if the request is in loading process or not. Starts as true.
     const [ isLoading, setIsLoading ] = useState<boolean>(true);
 
+    // specifies if the request is succeeded or not. Starts as true.
+    const [isSuccess, setIsSuccess] = useState<boolean>(false);
+    
     // holds the state for the error message from the request. Starts as an empty string.
     const [errorMessage, setErrorMessage] = useState<string>('');
     //#endregion ________________________________________________________________________________________
     
-
-
-
-
-
-    //#region ==============-- HOLDING THE PROP METHOS INTO CALLBACKS --=================================
-    // so they are not re-declared on each render.
-    const OnSuccess =  useCallback( () => onSuccess(),  [onSuccess]  );
-    const OnError =    useCallback( () => onError(),    [onError]    );
-    const OnFinished = useCallback( () => onFinished(), [onFinished] );
-    //#endregion ________________________________________________________________________________________
-
 
 
 
@@ -66,25 +52,23 @@ const useGet = ({
 
         // executing the request once the hook is called by the caller Component.
         makeReq()
+        // defining the data state based on the response data.
         .then( response  => { 
-            // defining the data state based on the response data.
             response.data.content ? setData(response.data.content) : ( response.data && setData(response.data) );
-            OnSuccess();
+            setIsSuccess(true);
         })
+        // defining the error message based on the enpoint.
         .catch( error => {
-            // defining the error message based on the enpoint.
-            setErrorMessage(`An error ocurred on GET /${endpoint}:\n${error}`);
-            OnError();
-        }) // cancelling loading once the request is over, regardless its result.
-        .finally( ()=> {
-            setIsLoading(false);
-            OnFinished();
-        });
+            setErrorMessage( `An error ocurred on GET /${endpoint}:\n${error}` );
+            setIsSuccess(false);
+        })
+         // cancelling loading once the request is over, regardless its result.
+        .finally( ()=> setIsLoading(false) );
 
         // canceling the source once the component unmounts.
         return () => axiosSource.cancel();
 
-    }, [endpoint, OnSuccess, OnError, OnFinished] )    
+    }, [endpoint] )
     //#endregion ________________________________________________________________________________________
 
 
@@ -94,7 +78,7 @@ const useGet = ({
 
     //#region ==============-- RETURNING THE OBJECT WITH THE STATES --===================================
     // returning all the states at one object to be updated into the caller Component after finishing the useEffect callback.
-    const resultData : IResult = { data, isLoading, errorMessage }; 
+    const resultData : IResult = { data, isLoading, isSuccess, errorMessage }; 
     return resultData;
     //#endregion ________________________________________________________________________________________
 
