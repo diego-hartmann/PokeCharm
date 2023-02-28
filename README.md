@@ -7,22 +7,22 @@ This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the
 <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" width="50%" height="50%" />
 
 ## Techs used to this project and steps of their installations:
-1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
+[Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
 <img src="https://seeklogo.com/images/Y/yarn-logo-F5E7A65FA2-seeklogo.com.png" width="50px" height="50px" />
 
-2. [TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety.
+[TypeScript](https://www.typescriptlang.org/): then, the project was initialized with TypeScript for type safety.
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="50px" height="50px" />
 
-3. [ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
+[ContextAPI](https://reactjs.org/docs/context.html): useContext hook was choosen to manage state context (it is a native feature in react). 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="55px" height="50px" />
 
-4. [Axios](https://axios-http.com/ptbr/docs/intro): Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
+[Axios](https://axios-http.com/ptbr/docs/intro): Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
 <img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="110px" height="50px" />
 
-5. [Jest](https://jestjs.io/): Jest was added into dependencies so the components and functions can be tested. 
+[Jest](https://jestjs.io/): Jest was added into dependencies so the components and functions can be tested. 
 <img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" width="50px" height="50px" />
 
-6. [Router](https://reactrouter.com/en/main): ```yarn add react-router-dom localforage match-sorter sort-by``` to donwload the dependencies for route managment.
+[Router](https://reactrouter.com/en/main): ```yarn add react-router-dom localforage match-sorter sort-by``` to donwload the dependencies for route managment.
 <img src="https://static-00.iconduck.com/assets.00/react-router-icon-512x279-zswz065s.png" width="90px" height="50px" />
 
 
