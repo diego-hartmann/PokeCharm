@@ -1,5 +1,5 @@
 import css from './index.module.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { favList } from '../../utils/favList';
 
 interface IProps {
@@ -7,7 +7,7 @@ interface IProps {
 }
 const Card = ( { pokemon } : IProps ) => {
   
-  const [id, setId] = useState(pokemon.id);
+  const [id, setId] = useState<number>(pokemon.id);
   
   // default
   const front_default : string = pokemon.sprites.front_default;
@@ -32,14 +32,12 @@ const Card = ( { pokemon } : IProps ) => {
   
 
 
-  const pokeExistsOnList = () => favList.get()?.includes(id);
-
+  
   useEffect( ()=> {
-    setIsFav( pokeExistsOnList() )
+    setIsFav( favList.get()?.includes(pokemon.id) );
+    console.log(pokemon.id);
     setId(pokemon.id);
-    console.log(favList);
-    console.log(id);
-  }, [pokemon.id] )
+  }, [setIsFav, isFav, pokemon] )
 
 
   function openPage(){
@@ -68,8 +66,8 @@ const Card = ( { pokemon } : IProps ) => {
       
       // adding this pokemon from fav list
       if(_isFav) {
-        if(pokeExistsOnList()) return;
-        const oldFavs : [] = favList.get();
+        if(isFav) return;
+        const oldFavs = favList.get();
         let newFavs = [];
         newFavs.push(id)
         oldFavs && Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
@@ -78,7 +76,7 @@ const Card = ( { pokemon } : IProps ) => {
       };
 
       // otherwise, remove this pokemon from fav list
-      if(!pokeExistsOnList) return;
+      if(!isFav) return;
       const newList = favList.get();
       let _newFavs = newList.filter( ( item:any ) => item !== id );
       favList.set(_newFavs);
