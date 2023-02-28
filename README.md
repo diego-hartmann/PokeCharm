@@ -1,8 +1,11 @@
-## Deployment
-Available on [PokeCharm](https://poke-charm.vercel.app) website.
+## Description
+Search for your favorite Pokémon on [PokeCharm](https://poke-charm.vercel.app)! This is a web application that shows Pokémons and their information, such as names, images and descriptions.
 
-## Data to serve the frontend:
-This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from this oficial API.
+## Deployment
+[PokeCharm](https://poke-charm.vercel.app) is available on https://poke-charm.vercel.app.
+
+## Data origin:
+This web application is a [PokeAPI](https://pokeapi.co/) client. It displays the data for each Pokémon from their oficial API.
 
 ## Techs used to this project and steps of their installations:
 1. [Yarn](https://yarnpkg.com/): First, it was decided to use Yarn for fast package managment,
