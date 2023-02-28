@@ -20,7 +20,7 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="55px" height="50px" />
 
-[Axios](https://axios-http.com/ptbr/docs/intro): Axios over FetchAPI due to cleanner syntax. It is used to the get the pokémon list.
+[Axios](https://axios-http.com/ptbr/docs/intro) due to clean syntax. It is used to the get the pokémon list.
 
 <img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="110px" height="50px" />
 
