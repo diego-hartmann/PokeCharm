@@ -42,6 +42,8 @@
     transform: scale(1);
     height: 50%;
     object-fit: contain;
+    cursor: pointer;
+
     --stroke-pos: 1px;
     --stroke-neg: -1px;
     --stroke-color: #fff;
@@ -86,6 +88,7 @@
     color: #ccc;
     transform: scale(1);
     transition: .15s;
+    cursor: pointer;
 }
 .fav i:hover {
     color:#fff;

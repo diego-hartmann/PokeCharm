@@ -2,7 +2,7 @@ import './App.css';
 import Loader from './components/Loader';
 import usePokeList from './hooks/usePokeList';
 import Pagination from './components/Pagination';
-
+import Logo from './components/Logo'
 
 function App() {
 
@@ -22,7 +22,8 @@ function App() {
       
       
       {/* ALL OF THEM  */}
-      <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/>
+      {/* <img src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png" height={100}/> */}
+      <Logo />
       { isLoading && <Loader message='Getting Pokemóns list...'/> }
       { isSuccess && <Pagination pokemons={pokemons} pokemonsPerPage={12} /> }
     

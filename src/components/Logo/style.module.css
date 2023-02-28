@@ -1,0 +1,17 @@
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   80% { transform: rotate(0deg); }
+   85% { transform: rotate(10deg); }
+   95% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wiggle {
+  display: inline-block;
+  animation: wiggle 2s infinite;
+  animation-delay: var(--delay);
+}
+
+.wiggle:hover {
+  animation: none;
+}
