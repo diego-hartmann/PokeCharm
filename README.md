@@ -73,6 +73,10 @@ documentation for more details).
 
 ✔️ Add any extra libraries / frameworks / dependencies.
 
-⚠️ Hooks, State Management, Router.
+✔️ Hooks.
+
+✔️ State Management.
+
+⚠️ Router.
 
 ⚠️ Unit tests in functions and components.

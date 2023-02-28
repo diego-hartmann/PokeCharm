@@ -1,5 +1,5 @@
-import Loader from "../components/Loader"
-import Context from "../context"
+import Loader from "../../components/Loader"
+import Context from "../../context"
 import { useContext } from "react"
 
 

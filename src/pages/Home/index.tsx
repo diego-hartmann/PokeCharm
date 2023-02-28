@@ -1,7 +1,7 @@
-import Loader from '../components/Loader';
-import Pagination from '../components/Pagination';
-import Header from '../patterns/Header';
-import Context from '../context';
+import Loader from '../../components/Loader';
+import Pagination from '../../components/Pagination';
+import Header from '../../patterns/Header';
+import Context from '../../context';
 import { useContext } from 'react';
 
 

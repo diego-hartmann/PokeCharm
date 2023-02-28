@@ -1,7 +1,7 @@
-import Pagination from "../components/Pagination"
-import Header from "../patterns/Header";
+import Pagination from "../../components/Pagination"
+import Header from "../../patterns/Header";
 import { useContext } from "react";
-import Context from "../context";
+import Context from "../../context";
 const MyPokedex = ( ) =>  
 {
   const { favPokes } = useContext(Context);
