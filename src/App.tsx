@@ -15,7 +15,7 @@ function App() {
         {isLoading && <Loader/>}
         
         {isSuccess && pokemons.map( (pokemon:any, index:number) => {
-          console.log(pokemon.sprites)
+          console.log(pokemon)
           return(
             <Card key={index} pokemon={pokemon}/>
           )  
