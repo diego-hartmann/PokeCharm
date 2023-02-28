@@ -27,36 +27,61 @@ const Card = ( { pokemon } : IProps ) => {
   const front_shiny_art : string = pokemon.sprites.other['official-artwork'].front_shiny;
 
   const [ isFav, setIsFav ] = useState(false);
+  
+  const getFavList = () => {  
+    // @ts-ignore
+    return JSON.parse(localStorage.getItem("favs"))
+  }
+
+  const setFavList = ( value : string[] ) => {
+    localStorage.setItem("favs", JSON.stringify(value));
+  }
+
+  const pokeExistsOnList = getFavList()?.includes(pokemon.name);
 
   useEffect(()=>{
     // @ts-ignore
-    const listValue = JSON.parse(localStorage.getItem('favs'));
-    const pokeExistsOnList = listValue?.includes(pokemon.name);
     setIsFav(pokeExistsOnList);
   },[])
 
+
   function openPage(){
     // RouteAPI
+    console.clear();
     console.log(pokemon);
+    console.log(pokemon.name);
+    console.log(pokemon.height);
+    console.log(pokemon.weight);
+    console.log(pokemon.base_experience);
+    console.log(pokemon.abilities);
   }
 
   function toggleFav(){
+
     const _isFav = !isFav; 
+    
+    // setting the visual state
     setIsFav(_isFav);
+
     try{
       
-      // @ts-ignore
-      const oldFavs : []  = JSON.parse(localStorage.getItem("favs"));
-      let newFavs = [];
-      newFavs.push(pokemon.name)
-      oldFavs && Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
-      // @ts-ignore, adding this pokemon from fav list
-      if(_isFav) return localStorage.setItem("favs", JSON.stringify(newFavs));
-      
-      // @ts-ignore, removing this pokemon from fav list
-      const newList = JSON.parse(localStorage.getItem('favs'))
+      // adding this pokemon from fav list
+      if(_isFav) {
+        if(pokeExistsOnList) return;
+        const oldFavs : [] = getFavList();
+        let newFavs = [];
+        newFavs.push(pokemon.name)
+        oldFavs && Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
+        localStorage.setItem("favs", JSON.stringify(newFavs))
+        setFavList(newFavs);
+        return;
+      };
+
+      // otherwise, remove this pokemon from fav list
+      if(!pokeExistsOnList) return;
+      const newList = getFavList();
       let _newFavs = newList.filter((item:any)=> item !== pokemon.name);
-      localStorage.setItem("favs", JSON.stringify(_newFavs));
+      setFavList(_newFavs);
 
     }catch(err){
       console.log(err);
