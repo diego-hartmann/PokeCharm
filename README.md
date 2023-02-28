@@ -68,10 +68,6 @@ documentation for more details).
 
 ✔️ The application code should be submitted in GitHub.
 
-✔️ On the README file of GitHub, should be mentioned the following information: small 
-description of the application, functional and technical requirements accomplished, 
-technologies used, and the steps of installation.
-
 ### Plus:
 ✔️ Apply any UI for all the components.
 
