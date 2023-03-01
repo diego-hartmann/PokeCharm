@@ -70,7 +70,7 @@ documentation for more details).
 
 ✔️ Usage of the local storage to handle the list of favorite Pokémons.
 
-⚠️ Usage of any UI framework adapted to React (Examples: Bootstrap, Semantic UI).
+✔️ Usage of any UI framework adapted to React (Examples: Bootstrap, Semantic UI).
 
 ⚠️ The app should be responsive (adapt UI so it can be displayed in different screen sizes).
 

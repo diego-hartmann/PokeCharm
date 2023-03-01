@@ -3,6 +3,7 @@ import css from './index.module.css';
 
 // getting routes nav
 import { useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material';
 
 /**
  * The menu containing the buttons th navigate throught the routes.
@@ -11,8 +12,8 @@ const PagesMenu = () => {
   const navigateTo = useNavigate();
   return (
     <div className={css.container}>
-        <p onClick={()=>navigateTo('/')} className={css.btn}>Home</p>
-        <p onClick={()=>navigateTo('/pokedex')} className={css.btn}>Pokedex</p>
+        <Button onClick={()=>navigateTo('/')} >Home</Button>
+        <Button onClick={()=>navigateTo('/pokedex')} >Pokedex</Button>
     </div>
   )
 }
