@@ -58,11 +58,11 @@
 
 .cardScaler{
     height: fit-content;
-    width: fit-content;
     transform: scale(2);
     z-index: 5;
     display: grid;
     place-items:center;
+    width: fit-content !important;
 }
 
 /* the card */
@@ -103,6 +103,7 @@ ul li{
 
 ul li p{
     text-transform: capitalize ;
+    pointer-events: none;
 }
 
 ul li span {
@@ -111,6 +112,13 @@ ul li span {
     padding: 2px 10px;
     text-transform: capitalize ;
     font-weight: bold;
+    transition: .2s;
+    display: block;
+}
+
+ul li:hover > span {
+    filter: drop-shadow(0 0 10px #fff) !important;
+    cursor: default;
 }
 
 
