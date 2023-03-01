@@ -50,11 +50,26 @@ const PokeInfo = ( ) => {
             {/* info data ---------------------------------------- */}
             <section className={css.infoData}>
               <ul>
-                <li><p>{`Id: ${selectedPokemon?.id}`}</p></li>
-                <li><p>{`Order: ${selectedPokemon?.order}`}</p></li>
-                <li><p>{`Height: ${selectedPokemon?.height}`}</p></li>
-                <li><p>{`Weight: ${selectedPokemon?.weight}`}</p></li>
-                <li><p>{`Base experience: ${selectedPokemon?.base_experience}`}</p></li>
+                <li>
+                  <p>Id:</p>
+                  <span>{selectedPokemon?.id}</span>
+                </li>
+                <li>
+                  <p>Order:</p>
+                  <span>{selectedPokemon?.order}</span>
+                </li>
+                <li>
+                  <p>Height:</p>
+                  <span>{selectedPokemon?.height}</span>
+                </li>
+                <li>
+                  <p>Weight:</p>
+                  <span>{selectedPokemon?.weight}</span>
+                </li>
+                <li>
+                  <p>Base experience:</p>
+                  <span>{selectedPokemon?.base_experience}</span>
+                </li>
               </ul>
             </section>
             {/* ------------------------------------------------- */}
@@ -76,13 +91,21 @@ const PokeInfo = ( ) => {
               
               <ul>{
                   selectedPokemon?.abilities.map((ab:IPokemonAbility, index:number) => (
-                    <li> <p>{`Ability #${index+1}: ${ab.ability.name}`}</p> </li>
+                    <li> 
+                      <p>{`Ability ${index+1}:`}</p>
+                      <span>{ab.ability.name}</span>
+                    </li>
                   ))
               }</ul>
+
               <br></br>
+              
               <ul>{
                   selectedPokemon?.stats.map((stat:IPokemonStatus, index:number) => (
-                      <li> <p>{`${stat.stat.name}: ${stat.base_stat}`}</p> </li>
+                      <li>
+                        <p>{`${stat.stat.name}:`}</p>
+                        <span>{stat.base_stat}</span>
+                      </li>
                   ))
               }</ul>
 
