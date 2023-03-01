@@ -5,7 +5,7 @@ import Header from "../../patterns/Header";
 import Context from "../../context"
 
 // native hooks
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 
 // components
 import Card from "../../components/Card"
