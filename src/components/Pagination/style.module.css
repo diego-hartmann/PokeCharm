@@ -68,7 +68,6 @@
     .selector{
         transform: scale(.9);
         margin-bottom: 30px;
-        width: fit-content;
         height: fit-content;
         gap: 8px;
         flex-wrap: wrap;

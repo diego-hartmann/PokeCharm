@@ -13,6 +13,7 @@ body {
   background-color: black;
   perspective: 1500px;
   position: relative;
+  padding-bottom: 50px;
 }
 *{
   box-sizing: border-box;

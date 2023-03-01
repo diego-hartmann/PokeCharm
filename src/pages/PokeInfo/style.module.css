@@ -119,11 +119,11 @@
 }
 
 /* not for mobile */
-@media screen and (min-width:500px) {
+/* @media screen and (min-width:500px) {
     .info ul:hover{
         transform: scale(1.035);
     }
-}
+} */
 
 .info ul li{
     width:100%;
