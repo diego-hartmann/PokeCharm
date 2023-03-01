@@ -28,7 +28,7 @@ const Card = ( { pokemon } : IProps ) => {
   const navigateTo = useNavigate();
   
   // getting states from context
-  const { setSelectedPokemon , setFavPokesIds} = useContext(Context);
+  const { setSelectedPokemon , setFavPokesIds, favPokesIds} = useContext(Context);
 
   // getting pokemon sprite url
   const sprite : string = pokemon.sprites.other.dream_world.front_default;
@@ -40,9 +40,9 @@ const Card = ( { pokemon } : IProps ) => {
   const [ isFav, setIsFav ] = useState(false);
 
   useEffect( ()=> {
-    // here, I am updating the isFav state based on othe content of storage.favList.
-    setIsFav( favList.get()?.includes(pokemon.id) );
-    // also, updating the id based on the pokemon obj passed by props.
+    // here, I am updating the isFav state based on favList content
+    setIsFav( favPokesIds.includes(pokemon.id) );
+    // also, updating the id of this card.
     setId(pokemon.id);
   }, [setIsFav, isFav, pokemon] )
 
@@ -68,7 +68,7 @@ const Card = ( { pokemon } : IProps ) => {
     try{
       
       // getting the value from the storage list
-      const oldFavs : number[] = favList.get();
+      const oldFavs : number[] = favPokesIds;
       // initing a new array to update the oldFavs array
       let newFavs : number[] = [];
 
@@ -85,8 +85,8 @@ const Card = ( { pokemon } : IProps ) => {
       }
 
       // replaicing the old list with the newer one.
-      favList.set(newFavs); // localstorage to PokeDex get this information 
-      setFavPokesIds(newFavs) // contaxt state to App update certain features.
+      favList.set(newFavs); // updating the localstorage list to save the data.
+      setFavPokesIds(newFavs) // context state to App update rendering.
 
     }
     catch(err){
