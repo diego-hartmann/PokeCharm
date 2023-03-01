@@ -33,7 +33,14 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
         const variant = index === pageIndex ? 'contained' : 'outlined'
         return(
           // @ts-ignore
-          <Button variant={variant} sx={{color:page.color}} onClick={()=>navigateTo(`/${page.path}`)} >{page.name}</Button> 
+          <Button
+            key={index}
+            variant={variant}
+            sx={{color:page.color}}
+            onClick={()=>navigateTo(`/${page.path}`)}
+          >
+            {page.name}
+          </Button> 
           )
         })}
       </Stack>

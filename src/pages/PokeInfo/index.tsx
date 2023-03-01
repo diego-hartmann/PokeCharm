@@ -10,9 +10,6 @@ import { useContext, useEffect, useState } from "react"
 // components
 import Card from "../../components/Card"
 
-// routes
-import { useNavigate } from 'react-router-dom'
-
 // style
 import css from './style.module.css';
 
@@ -24,23 +21,6 @@ const PokeInfo = ( ) => {
   // getting which pokemon was selected so this component displays its info.
   const { selectedPokemon } = useContext(Context);
   
-  // routes
-  const navigateTo = useNavigate();
-
-  // state to check if there is a pokemon passed to this rote thorugh the selectedPokemon
-  const [hasPoke, setHasPoke] = useState(selectedPokemon !== undefined);
-
-  
-  useEffect(()=>{
-    // if the the user access this route and there is no pokemon selected, go back.
-    if(selectedPokemon === undefined){
-      navigateTo('/');
-      return;
-    }
-    // set flag to true so it renders the component.
-    setHasPoke(true);
-  },[])
-
   const sprite = selectedPokemon?.sprites?.other?.dream_world?.front_default;
 
   return(
@@ -48,12 +28,7 @@ const PokeInfo = ( ) => {
         <Header pageIndex={2}/>
         {
 
-
-          hasPoke &&
           <div className={css.container}>
-
-
-
 
 
             {/* absolute displayed elements to apply effects ---- */}
@@ -61,9 +36,6 @@ const PokeInfo = ( ) => {
             <div className={css.blur}/>
             <div className={css.darken}/>
             {/* ------------------------------------------------- */}
-
-
-
 
 
 
@@ -87,9 +59,6 @@ const PokeInfo = ( ) => {
               <Card pokemon={selectedPokemon} />
             </section>
             {/* ------------------------------------------------- */}
-
-
-
 
 
 
