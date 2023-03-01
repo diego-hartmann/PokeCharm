@@ -67,6 +67,21 @@ const PokeInfo = ( ) => {
 
 
 
+
+            {/* info data ---------------------------------------- */}
+            <div className={css.infoData}>
+              <span>{`Name: ${selectedPokemon?.name}`}</span>
+              <span>{`Id: ${selectedPokemon?.id}`}</span>
+              <span>{`Order: ${selectedPokemon?.order}`}</span>
+              <span>{`Height: ${selectedPokemon?.height}`}</span>
+              <span>{`Weight: ${selectedPokemon?.weight}`}</span>
+              <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
+            </div>
+            {/* ------------------------------------------------- */}
+
+
+
+
             {/* card with name, image and fav btn ----------------*/}
             <div className={css.cardScaler}>
               <Card pokemon={selectedPokemon} />
@@ -79,23 +94,11 @@ const PokeInfo = ( ) => {
 
 
 
-            {/* info data ---------------------------------------- */}
-            <span>{`Name: ${selectedPokemon?.name}`}</span>
-            <span>{`Id: ${selectedPokemon?.id}`}</span>
-            <span>{`Order: ${selectedPokemon?.order}`}</span>
-            <span>{`Height: ${selectedPokemon?.height}`}</span>
-            <span>{`Weight: ${selectedPokemon?.weight}`}</span>
-            <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
-            {/* ------------------------------------------------- */}
-            
-            
-
-
-
-
-            {/* status list ------------------------------------- */}
-            <span>{`Abilities: ${selectedPokemon?.abilities}`}</span>
-            <span>{`Stats: ${selectedPokemon?.stats}`}</span>
+            {/* status lists ------------------------------------- */}
+            <div className={css.statusLists}>
+              {<span>{`Abilities: ${selectedPokemon?.abilities}`}</span>}
+              {<span>{`Stats: ${selectedPokemon?.stats}`}</span>}
+            </div>
             {/* ------------------------------------------------- */}
             
             

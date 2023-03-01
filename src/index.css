@@ -12,6 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   perspective: 1500px;
+  position: relative;
 }
 *{
   box-sizing: border-box;
