@@ -91,6 +91,12 @@ ul{
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    transition: .2s;
+    transform: scale(1);
+}
+
+ul:hover{
+    transform: scale(1.035);
 }
 
 ul li{

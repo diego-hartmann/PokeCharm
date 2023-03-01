@@ -39,6 +39,12 @@
     list-style-type: none;
     height: 40px;
 }
+
+.selector:hover{
+    transform: scale(1) !important;
+}
+
+
 .selector > li{
     display: inline-block;
     min-width: 48px;
