@@ -1,8 +1,10 @@
 import { IPokemon } from "./IPokemon"
 
 export type TContext = {
-    pokemons : IPokemon[],
-    favPokes : IPokemon[],
-    isLoading : boolean,
-    setFavPokes: ( pokemons : IPokemon[] ) => void;
+    isLoading: boolean,
+    pokemons: IPokemon[],
+    favPokesIds: number[],
+    setFavPokesIds: ( pokemonIds : number[] ) => void,
+    selectedPokemon: IPokemon,
+    setSelectedPokemon: (pokemon : IPokemon) => void,
 }

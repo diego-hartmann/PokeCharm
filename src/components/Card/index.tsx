@@ -1,10 +1,19 @@
 import css from './index.module.css';
 import { useEffect, useState } from 'react';
 import { favList } from '../../utils/favList';
+import { useNavigate } from 'react-router-dom';
+// import { IPokemon } from '../../data/@types/IPokemon';
+import { useContext } from 'react';
+import Context from '../../context';
 
 interface IProps { pokemon : any }
+
 const Card = ( { pokemon } : IProps ) => {
+
+  const navigateTo = useNavigate();
   
+  const { setSelectedPokemon } = useContext(Context);
+
   // default
   const front_default : string = pokemon.sprites.front_default;
   const back_default : string = pokemon.sprites.back_default;
@@ -26,7 +35,7 @@ const Card = ( { pokemon } : IProps ) => {
 
 
   // both id and isFav states are used to handle the favorite list regarting this pokemon.
-  const [id, setId] = useState<number|null>(null);
+  const [id, setId] = useState<number>();
   const [ isFav, setIsFav ] = useState(false);
 
   useEffect( ()=> {
@@ -43,6 +52,8 @@ const Card = ( { pokemon } : IProps ) => {
    */
   function openPage(){
     // RouteAPI
+    setSelectedPokemon(pokemon);
+    navigateTo('/info');
     console.clear();
     // console.log(pokemon);
     console.log(pokemon.name);
@@ -54,6 +65,7 @@ const Card = ( { pokemon } : IProps ) => {
     console.log(pokemon.base_experience);
     console.log(pokemon.abilities);
     console.log(pokemon.stats);
+
   }
 
   function toggleFav(){
@@ -67,16 +79,16 @@ const Card = ( { pokemon } : IProps ) => {
     try{
       
       // getting the value from the storage list
-      const oldFavs = favList.get();
+      const oldFavs : number[] = favList.get();
       // initing a new array to update the oldFavs array
-      let newFavs = [];
+      let newFavs : number[] = [];
 
       // adding this pokemon to fav list
       if(_isFav) {
         // adding this new pokemon into the new list.
-          newFavs.push(id)
+          newFavs.push(id!!)
           // then, adding all ints content into the new array too.
-          Array.from(oldFavs)?.forEach(fav => newFavs.push(fav));
+          Array.from(oldFavs)?.forEach( fav => newFavs.push(fav) );
       }else{
         // otherwise, remove this pokemon from fav list
         // filtering it without the current pokemon

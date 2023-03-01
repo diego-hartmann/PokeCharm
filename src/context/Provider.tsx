@@ -3,27 +3,24 @@ import Context from './index';
 import { useEffect, useState } from 'react';
 import usePokeList from '../hooks/usePokeList';
 import { favList } from '../utils/favList';
+import { IPokemon } from '../data/@types/IPokemon';
 
 const Provider = ( { children }: IProviderProps ) => {
 
     const { pokemons, isLoading } = usePokeList();
 
-    const [favPokes, setFavPokes] = useState<any[]>([]);
+    const [favPokesIds, setFavPokesIds] = useState<number[]>([]);
+    
+    const [selectedPokemon, setSelectedPokemon] = useState<IPokemon>({} as IPokemon)
 
     useEffect(()=>{
         if(!pokemons) return () => console.log("No pokemon fetched yet.");
-            const FavList : number[] = favList.get();
-            const newList : number[] = [];
-            pokemons.forEach( ( poke : any ) => {
-            if(FavList.includes(poke.id)){
-                newList.push(poke);
-            }
-        });
-        setFavPokes(newList);
-  }, [pokemons, favPokes])
+        const FavList : number[] = favList.get();
+        setFavPokesIds(FavList);
+  }, [pokemons, favPokesIds])
 
     return (
-        <Context.Provider value={ { pokemons, favPokes, isLoading, setFavPokes } }>
+        <Context.Provider value={ { pokemons, favPokesIds, isLoading, setFavPokesIds, selectedPokemon, setSelectedPokemon } }>
             {children}
         </Context.Provider>
     )

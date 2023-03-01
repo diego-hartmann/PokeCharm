@@ -1,24 +1,23 @@
 import Loader from "../../components/Loader"
 import Context from "../../context"
 import { useContext } from "react"
-
+import Card from "../../components/Card"
 
 const PokeInfo = ( ) => {
-  const { isLoading, pokemons, favPokes, setFavPokes } = useContext(Context)
+  const {isLoading, setFavPokesIds, selectedPokemon } = useContext(Context)
 
-  const pokemon = pokemons[0];
   return(
       isLoading ? <Loader /> :
       <>
-        <div>Name: {pokemon?.name}</div>
-        <img src={pokemon?.image} />
-        <div>Id: {pokemon?.id}</div>
-        <div>Order: {pokemon?.order}</div>
-        <div>Height: {pokemon?.height}</div>
-        <div>Weight: {pokemon?.weight}</div>
-        <div>Base experience: {pokemon?.base_experience}</div>
-        <div>Abilities: {pokemon?.abilities}</div>
-        <div>Stats: {pokemon?.stats}</div>
+        <Card pokemon={selectedPokemon} />
+
+        <div>Id: {selectedPokemon?.id}</div>
+        <div>Order: {selectedPokemon?.order}</div>
+        <div>Height: {selectedPokemon?.height}</div>
+        <div>Weight: {selectedPokemon?.weight}</div>
+        <div>Base experience: {selectedPokemon?.base_experience}</div>
+        <div>Abilities: {selectedPokemon?.abilities}</div>
+        <div>Stats: {selectedPokemon?.stats}</div>
     </> 
   )
 }
