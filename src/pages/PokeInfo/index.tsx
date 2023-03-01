@@ -92,8 +92,8 @@ const PokeInfo = ( ) => {
               <ul>{
                   selectedPokemon?.abilities.map((ab:IPokemonAbility, index:number) => (
                     <li key={index}> 
-                      <p>{`Ability ${index+1}:`}</p>
-                      <span>{ab.ability.name}</span>
+                      <p>{`Ability ${index+1}`}</p>
+                      <span>{(ab.ability.name).split('-').join(' ')}</span>
                     </li>
                   ))
               }</ul>
@@ -103,8 +103,8 @@ const PokeInfo = ( ) => {
               <ul>{
                   selectedPokemon?.stats.map((stat:IPokemonStatus, index:number) => (
                       <li key={index}>
-                        <p>{`${stat.stat.name}:`}</p>
-                        <span>{stat.base_stat}</span>
+                        <p>{`${stat.stat.name}`.split('-').join(' ')}</p>
+                        <span>{(stat.base_stat).toString().split('-').join(' ')}</span>
                       </li>
                   ))
               }</ul>
