@@ -78,7 +78,7 @@ documentation for more details).
 
 ✔️ Usage of any UI framework adapted to React (Examples: Bootstrap, Semantic UI).
 
-⚠️ The app should be responsive (adapt UI so it can be displayed in different screen sizes).
+✔️ The app should be responsive (adapt UI so it can be displayed in different screen sizes).
 
 ✔️ The code should contain comments.
 
