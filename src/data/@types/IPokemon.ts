@@ -1,16 +1,3 @@
-
-interface IDreamWorld {
-    front_default:string;
-}
-
-interface IOther {
-    dream_world : IDreamWorld
-}
-
-interface sprites {
-    other : IOther
-}
-
 export interface IPokemon {
     name : string,
     id : number,
@@ -18,8 +5,37 @@ export interface IPokemon {
     height : number,
     weight : number,
     base_experience : number
-    sprites : sprites,
-    // modify it latter, setting as ANY for testing
-    abilities : any[],
-    stats : any[] 
+    
+
+    // sprite path
+    sprites : {
+        other: {
+            dream_world:{
+                front_default : string;
+            }
+        }
+    },
+
+
+
+    // array of objects
+    abilities : {
+        // ability with its name
+        ability:{
+            name : string
+        }
+    }[],
+
+
+    
+
+    // array of objects
+    stats : {
+        // number of the status
+        base_stat:number,
+        // name of the status
+        stat : {
+            name:string
+        }
+    }[]
 }
