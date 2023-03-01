@@ -13,6 +13,9 @@ import Card from "../../components/Card"
 // style
 import css from './style.module.css';
 
+// types
+import { IPokemonAbility, IPokemonStatus } from "../../data/@types/IPokemon";
+
 /**
  * Page containing information about the selected pokemón. 
  */
@@ -25,6 +28,7 @@ const PokeInfo = ( ) => {
 
   // debuging pokemon on init
   useEffect( ()=> console.log( selectedPokemon )  , [] )
+
 
   return(
       <>
@@ -45,12 +49,14 @@ const PokeInfo = ( ) => {
 
             {/* info data ---------------------------------------- */}
             <section className={css.infoData}>
-              <span>{`Name: ${selectedPokemon?.name}`}</span>
-              <span>{`Id: ${selectedPokemon?.id}`}</span>
-              <span>{`Order: ${selectedPokemon?.order}`}</span>
-              <span>{`Height: ${selectedPokemon?.height}`}</span>
-              <span>{`Weight: ${selectedPokemon?.weight}`}</span>
-              <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
+              <ul>
+                <li><p>{`Name: ${selectedPokemon?.name}`}</p></li>
+                <li><p>{`Id: ${selectedPokemon?.id}`}</p></li>
+                <li><p>{`Order: ${selectedPokemon?.order}`}</p></li>
+                <li><p>{`Height: ${selectedPokemon?.height}`}</p></li>
+                <li><p>{`Weight: ${selectedPokemon?.weight}`}</p></li>
+                <li><p>{`Base experience: ${selectedPokemon?.base_experience}`}</p></li>
+              </ul>
             </section>
             {/* ------------------------------------------------- */}
 
@@ -68,8 +74,19 @@ const PokeInfo = ( ) => {
 
             {/* status lists ------------------------------------- */}
             <section className={css.statusLists}>
-              {<span>{`Abilities: ${selectedPokemon?.abilities}`}</span>}
-              {<span>{`Stats: ${selectedPokemon?.stats}`}</span>}
+              
+              <ul>{
+                  selectedPokemon?.abilities.map((ab:IPokemonAbility, index:number) => (
+                    <li> <p>{`Ability #${index+1}: ${ab.ability.name}`}</p> </li>
+                  ))
+              }</ul>
+              <br></br>
+              <ul>{
+                  selectedPokemon?.stats.map((stat:IPokemonStatus, index:number) => (
+                      <li> <p>{`${stat.stat.name}: ${stat.base_stat}`}</p> </li>
+                  ))
+              }</ul>
+
             </section>
             {/* ------------------------------------------------- */}
             
