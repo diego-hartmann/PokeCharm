@@ -67,9 +67,11 @@
 @media screen and (max-width: 815px){
     .selector{
         transform: scale(.9);
-        margin-bottom: 12px;
-        width: 80vw;
+        margin-bottom: 30px;
+        width: fit-content;
+        height: fit-content;
         gap: 8px;
+        flex-wrap: wrap;
     }
 }
 
