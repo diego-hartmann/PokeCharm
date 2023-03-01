@@ -62,12 +62,6 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
   return (
     <div className={css.container}>
 
-      {/* absolute displayed elements to apply effects ---- */}
-      <div className={css.bgImage} />
-      <div className={css.blur}/>
-      <div className={css.darken}/>
-      {/* ------------------------------------------------- */}
-
       <Cards currentItems={currentPokemons} />
       <ReactPaginate
         className={css.selector}

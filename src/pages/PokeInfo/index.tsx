@@ -16,6 +16,9 @@ import css from './style.module.css';
 // types
 import { IPokemonAbility, IPokemonStatus } from "../../data/@types/IPokemon";
 
+import BGEffect from "../../components/BGEffect";
+
+
 /**
  * Page containing information about the selected pokemón. 
  */
@@ -38,12 +41,7 @@ const PokeInfo = ( ) => {
           <div className={css.info}>
 
 
-            {/* absolute displayed elements to apply effects ---- */}
-            <div className={css.bgImage} style={{ backgroundImage: `url(${sprite})` }} />
-            <div className={css.blur}/>
-            <div className={css.darken}/>
-            {/* ------------------------------------------------- */}
-
+            <BGEffect id={selectedPokemon?.id} />
 
 
 

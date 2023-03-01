@@ -1,6 +1,8 @@
 // pagination feature
 import Pagination from "../../components/Pagination"
 
+import BGEffect from "../../components/BGEffect";
+
 // common header component with the buttons menu to change pages
 import Header from "../../patterns/Header";
 
@@ -23,6 +25,9 @@ const PokeDex = ( ) =>
   return (
   <>
     <Header pageIndex={1}/>
+    {/* <BGEffect id={146} /> */}
+    <BGEffect id={150} />
+
     {/* getting only ID(number) list from pokemon objects list */}
     <Pagination pokemonsToShow={    pokemons.filter( poke => favPokesIds.includes(poke.id) )     } pokemonsPerPage={4}/>
   </>
