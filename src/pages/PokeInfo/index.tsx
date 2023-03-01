@@ -1,23 +1,45 @@
-import Loader from "../../components/Loader"
 import Context from "../../context"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import Card from "../../components/Card"
+import Header from "../../patterns/Header"
+import { useNavigate } from 'react-router-dom'
+
+import css from './style.module.css';
 
 const PokeInfo = ( ) => {
-  const {isLoading, setFavPokesIds, selectedPokemon } = useContext(Context)
+  
+  const { selectedPokemon } = useContext(Context);
+  const navigateTo = useNavigate();
+
+  const [hasPoke, setHasPoke] = useState(false);
+  
+  useEffect(()=>{
+    // if the the user access this route and there is no pokemon selected, go back.
+    if(selectedPokemon === undefined){
+      navigateTo('/');
+      return;
+    }
+    setHasPoke(true);
+  },[])
 
   return(
-      isLoading ? <Loader /> :
       <>
-        <Card pokemon={selectedPokemon} />
-
-        <div>Id: {selectedPokemon?.id}</div>
-        <div>Order: {selectedPokemon?.order}</div>
-        <div>Height: {selectedPokemon?.height}</div>
-        <div>Weight: {selectedPokemon?.weight}</div>
-        <div>Base experience: {selectedPokemon?.base_experience}</div>
-        <div>Abilities: {selectedPokemon?.abilities}</div>
-        <div>Stats: {selectedPokemon?.stats}</div>
+        <Header/>
+        {
+          hasPoke &&
+          <div className={css.container}>
+            <Card pokemon={selectedPokemon} />
+            <img src={selectedPokemon?.sprites?.other?.dream_world?.front_default} />
+            <span>{`Name: ${selectedPokemon?.name}`}</span>
+            <span>{`Id: ${selectedPokemon?.id}`}</span>
+            <span>{`Order: ${selectedPokemon?.order}`}</span>
+            <span>{`Height: ${selectedPokemon?.height}`}</span>
+            <span>{`Weight: ${selectedPokemon?.weight}`}</span>
+            <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
+            <span>{`Abilities: ${selectedPokemon?.abilities}`}</span>
+            <span>{`Stats: ${selectedPokemon?.stats}`}</span>
+          </div>
+        }
     </> 
   )
 }

@@ -9,15 +9,15 @@ const Provider = ( { children }: IProviderProps ) => {
 
     const { pokemons, isLoading } = usePokeList();
 
-    const [favPokesIds, setFavPokesIds] = useState<number[]>([]);
+    const [ favPokesIds, setFavPokesIds ] = useState<number[]>([]);
     
-    const [selectedPokemon, setSelectedPokemon] = useState<IPokemon>({} as IPokemon)
+    const [ selectedPokemon, setSelectedPokemon ] = useState<IPokemon>({} as IPokemon)
 
     useEffect(()=>{
         if(!pokemons) return () => console.log("No pokemon fetched yet.");
         const FavList : number[] = favList.get();
         setFavPokesIds(FavList);
-  }, [pokemons, favPokesIds])
+  }, [ pokemons ])
 
     return (
         <Context.Provider value={ { pokemons, favPokesIds, isLoading, setFavPokesIds, selectedPokemon, setSelectedPokemon } }>
