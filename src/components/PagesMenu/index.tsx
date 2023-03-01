@@ -4,18 +4,14 @@ import { useNavigate } from 'react-router-dom'
 // getting mui comps
 import { Button, Stack } from '@mui/material';
 
-
-const pages = [
-  {
-    name: 'Home',
-    path: '',
-    color: '#fff',
-  },
-  {
-    name: 'Pokedex',
-    path: 'pokedex',
-    color: '#fff',
-  },
+interface IPage{
+  name: string,
+  path: string,
+color: string,
+}
+const pages : IPage[] = [
+  { name: 'Home',    path: '',        color: '#fff' },
+  { name: 'Pokedex', path: 'pokedex', color: '#fff' },
 ]
 
 
