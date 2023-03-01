@@ -22,7 +22,7 @@ import css from './style.module.css';
 const PokeInfo = ( ) => {
   
   // getting which pokemon was selected so this component displays its info.
-  const { selectedPokemon, favPokesIds } = useContext(Context);
+  const { selectedPokemon } = useContext(Context);
   
   // routes
   const navigateTo = useNavigate();
@@ -41,14 +41,20 @@ const PokeInfo = ( ) => {
     setHasPoke(true);
   },[])
 
+  const sprite = selectedPokemon?.sprites?.other?.dream_world?.front_default;
+
   return(
       <>
         <Header/>
         {
           hasPoke &&
-          <div className={css.container} style={{
-            backgroundImage: `url(${selectedPokemon?.sprites?.other?.dream_world?.front_default})`,
-          }}>
+          <div className={css.container}>
+            
+
+            <div className={css.bgImage} style={{ backgroundImage: `url(${sprite})` }} />
+            <div className={css.blur}/>
+            <div className={css.darken}/>
+            
             <div className={css.cardScaler}>
               <Card pokemon={selectedPokemon} />
             </div>
@@ -60,7 +66,10 @@ const PokeInfo = ( ) => {
             <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
             <span>{`Abilities: ${selectedPokemon?.abilities}`}</span>
             <span>{`Stats: ${selectedPokemon?.stats}`}</span>
-            {/* <img src={selectedPokemon?.sprites?.other?.dream_world?.front_default} /> */}
+            
+            
+
+            {/* <img src={sprite} /> */}
           </div>
         }
     </> 

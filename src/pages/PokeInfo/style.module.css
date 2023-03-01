@@ -4,39 +4,59 @@
     flex-direction: column;
     align-items: center;
     height: fit-content;
-    background-position-y: -200px;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: relative;
     padding-top: 170px;
     z-index: 0;
 }
-.container::after{
+.bgImage{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(19, 18, 18, 0.582);
     display: block;
     pointer-events: none;
     top: 0; left: 0;
     content: "";
     z-index: 1;
-    backdrop-filter: blur(5px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    top: 0; left: 0;
+    content: "";
+    z-index: 2;
+    backdrop-filter: blur(7px);
+}
+.darken{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    top: 0; left: 0;
+    content: "";
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.685);
 }
 
 .container * {
-    z-index: 2;
-    background-color: transparent;
+    z-index: 4;
 }
 
 .cardScaler{
     height: fit-content;
     width: fit-content;
     transform: scale(2);
-    z-index: 3;
+    z-index: 5;
 }
 .cardScaler > div{
     backdrop-filter: blur(5px);
+    background-color: transparent !important;
 }
 
 .container span {
