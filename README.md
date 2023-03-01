@@ -40,15 +40,15 @@ corresponding name and image for each of them).
 
 ✔️ In the main page: apply pagination in the list of Pokémons.
 
-⚠️ From the main page, while clicking a Pokémon, the user should be able to navigate to 
+✔️ From the main page, while clicking a Pokémon, the user should be able to navigate to 
 another page containing the details of that Pokémon.
 
 ✔️ In the Pokémon details page, the user should see at least 6 descriptions, the image and 
 the name of one Pokémon.
 
-⚠️ In the Pokémon detail page, the user should be able to favorite the Pokémon.
+✔️ In the Pokémon detail page, the user should be able to favorite the Pokémon.
 
-⚠️ From the main page, the user should be able to navigate to another page. This page 
+✔️ From the main page, the user should be able to navigate to another page. This page 
 should contain a list of the favorite Pokémons (with corresponding name and image for each 
 of them).
 
@@ -77,6 +77,6 @@ documentation for more details).
 
 ✔️ State Management.
 
-⚠️ Router.
+✔️ Router.
 
 ⚠️ Unit tests in functions and components.
