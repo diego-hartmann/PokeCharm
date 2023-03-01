@@ -51,23 +51,23 @@ const PokeInfo = ( ) => {
             <section className={css.infoData}>
               <ul>
                 <li>
-                  <p>Id:</p>
+                  <p>Id</p>
                   <span>{selectedPokemon?.id}</span>
                 </li>
                 <li>
-                  <p>Order:</p>
+                  <p>Order</p>
                   <span>{selectedPokemon?.order}</span>
                 </li>
                 <li>
-                  <p>Height:</p>
+                  <p>Height</p>
                   <span>{selectedPokemon?.height}</span>
                 </li>
                 <li>
-                  <p>Weight:</p>
+                  <p>Weight</p>
                   <span>{selectedPokemon?.weight}</span>
                 </li>
                 <li>
-                  <p>Base experience:</p>
+                  <p>Base experience</p>
                   <span>{selectedPokemon?.base_experience}</span>
                 </li>
               </ul>
