@@ -24,10 +24,14 @@ const Provider = ( { children }: IProviderProps ) => {
     // so a new page is open with its information.
     const [ selectedPokemon, setSelectedPokemon ] = useState<IPokemon>({} as IPokemon)
 
+
     useEffect(()=>{
+
         if(!pokemons) return () => console.log("No pokemon fetched yet.");
+
         // populating the state with the list  from localstorage to be passed though all the components
         setFavPokesIds(favList.get());
+
     }, [ pokemons ])
 
     return (

@@ -12,9 +12,12 @@ import axios, { CancelTokenSource } from 'axios';
 
 // importing custom types
 
+// types
 import { IRequestResult } from '../../data/@types/IRequestResult';
-
 import { IPokemon } from '../../data/@types/IPokemon';
+
+// importing the localstorage pokemons so it dows not over-use request.
+import { cashedPokemons } from '../../utils/cashedPokemons';
 
 
 /**
@@ -53,6 +56,21 @@ const usePokeList = ( count : number = 150) => {
     //#region ==============-- DEALING WITH THE FETCH LOGIC --===========================================
     useEffect( ()=> {
 
+        
+        // if there is pokemon inside localstorage, let's save reqs. Or payed servers, it saves money.
+        // for some reason, it does not seem to work... Maybe due to filesize, it does not save into localstorage
+        const cashed = cashedPokemons.get();
+        if(cashed.length > 0){
+            setPokemons(cashed);
+            setIsSuccess(true);
+            setIsLoading(false);
+            setErrorMessage('');
+            console.log("Cashed pokemóns");
+            return;
+        }
+
+        console.log("Requesting pokemóns...");
+
         // creating axios source so we can get its token and cancel() it into unMount (return()=>...).
         const axiosSource : CancelTokenSource = axios.CancelToken.source();
         
@@ -74,16 +92,25 @@ const usePokeList = ( count : number = 150) => {
         .then( ( requests : any )  => { 
             // accessing the list of pokemons
             const pokeList = requests.map( ( req : any ) => req.data );
+            
+            // saving it into the global state context.
             setPokemons(pokeList);
+            
+            // saving it into storage, so there is no need to re-request in other render.
+            // for some reason, it does not seem to work...
+            cashedPokemons.set(pokeList)
+            
             setIsSuccess(true);
+    
+            console.log("Success on request.");
         })
         // defining the error message based on the enpoint.
         .catch( error => {
             setErrorMessage( `An error ocurred on GET pokemons:\n${error}` );
-            setIsSuccess(false);
+            setIsSuccess( false );
         })
         // cancelling loading once the request is over, regardless its result.
-        .finally( ()=> setIsLoading(false) );
+        .finally( ()=> setIsLoading( false ) );
 
         // canceling the source once the component unmounts.
         return () => axiosSource.cancel();
