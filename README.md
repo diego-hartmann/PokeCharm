@@ -4,6 +4,9 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 <img src="https://static.wikia.nocookie.net/pokemonet/images/8/87/004CharmanderFRLG.png/revision/latest?cb=20130505000902&path-prefix=pt-br" width="10%" height="10%" />
 
 ## Techs used to this project and steps of their installations:
+
+- obs: They are listed in order of instalation and usage.
+
 [PokeAPI](https://pokeapi.co/): The original pokémon data. PokeCharm displays the data for each Pokémon from their oficial API.
 
 <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" width="15%" height="15%" />
@@ -33,6 +36,13 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 <img src="https://static-00.iconduck.com/assets.00/react-router-icon-512x279-zswz065s.png" width="90px" height="50px" />
 
 [React-Paginate](https://github.com/AdeleD/react-paginate): A ReactJS component to render a pagination.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="55px" height="50px" />
+
+[MaterialUI](https://mui.com/): A ReactJS component to render a pagination.
+
+<img src="https://v4.material-ui.com/static/logo.png" width="50px" height="50px" />
+
 
 ## Functional requirements:
 ✔️ The user should be able to see a main screen with a list of all Pokémons (with 

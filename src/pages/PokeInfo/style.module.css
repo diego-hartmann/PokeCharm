@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     height: fit-content;
-    position: relative;
+    /* position: relative; */
     padding-top: 170px;
     z-index: 0;
 }
@@ -17,7 +17,7 @@
     top: 0; left: 0;
     content: "";
     z-index: 1;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -30,7 +30,7 @@
     top: 0; left: 0;
     content: "";
     z-index: 2;
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(9px);
 }
 .darken{
     position: absolute;
@@ -41,7 +41,7 @@
     top: 0; left: 0;
     content: "";
     z-index: 3;
-    background-color: rgba(0, 0, 0, 0.685);
+    background-color: rgba(0, 0, 0, 0.788);
 }
 
 .container * {
