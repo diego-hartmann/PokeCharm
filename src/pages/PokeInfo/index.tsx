@@ -35,7 +35,7 @@ const PokeInfo = ( ) => {
         <Header pageIndex={2}/>
         {
 
-          <div className={css.container}>
+          <div className={css.info}>
 
 
             {/* absolute displayed elements to apply effects ---- */}
@@ -91,7 +91,7 @@ const PokeInfo = ( ) => {
               
               <ul>{
                   selectedPokemon?.abilities.map((ab:IPokemonAbility, index:number) => (
-                    <li> 
+                    <li key={index}> 
                       <p>{`Ability ${index+1}:`}</p>
                       <span>{ab.ability.name}</span>
                     </li>
@@ -102,7 +102,7 @@ const PokeInfo = ( ) => {
               
               <ul>{
                   selectedPokemon?.stats.map((stat:IPokemonStatus, index:number) => (
-                      <li>
+                      <li key={index}>
                         <p>{`${stat.stat.name}:`}</p>
                         <span>{stat.base_stat}</span>
                       </li>
