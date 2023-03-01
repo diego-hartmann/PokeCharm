@@ -86,12 +86,11 @@
 }
 
 /* the card */
-.cardScaler > div{
+/* .cardScaler > div{
     backdrop-filter: blur(5px);
     background-color: transparent ;
     box-shadow: 0 0 5px #00000065;
-
-}
+} */
 
 /* not for mobile */
 @media screen and (min-width:500px) {

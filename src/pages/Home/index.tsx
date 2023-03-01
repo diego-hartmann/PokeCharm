@@ -19,7 +19,7 @@ const Home = ( ) => {
   return (
     <>
       <Header pageIndex={0}/>
-      <Pagination pokemonsToShow={pokemons} pokemonsPerPage={12} /> 
+      <Pagination pokemonsToShow={pokemons} pokemonsPerPage={6} /> 
     </>
   )
 }

@@ -4,7 +4,9 @@
     max-width: 80vw;
     margin: 0 auto;
     border-radius: 0.5rem;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: calc(100vh - 270px);
+
 }
 .items{
     border-radius: .5rem;
@@ -45,24 +47,27 @@
     min-width: 48px;
     width: fit-content;
     white-space: nowrap;
-    background-color: purple;
+    background-color: #1976d2;
     color: #ccc;
     text-transform: uppercase;
     border-radius: 0.2rem;
     cursor: pointer;
-    transition: .15s;
+    transition: 0.5s;
 }
+
 .selector > li > a{
     padding: 2px 8px;
     display: block;
     width: 100%;
     height: 100%;
 }
-.selector > li:hover{
-    transform: translateY(-2px);
-    border-bottom: 2px solid rgb(92, 0, 92);
-}
 
+@media screen and (min-width: 500px) {
+    .selector > li:hover{
+        transform: translateY(-2px);
+        background-color: #3a93eb;
+    }
+}
 
 @media screen and (max-width: 815px){
     .selector{
@@ -79,4 +84,43 @@
     .items{
         gap: 3px;
     }
+}
+
+.bgImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    top: 0; left: 0;
+    content: "";
+    z-index: -3;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/5.svg);
+}
+
+.blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    top: 0; left: 0;
+    content: "";
+    z-index: -2;
+    backdrop-filter: blur(5px);
+}
+
+.darken{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    top: 0; left: 0;
+    content: "";
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.788);
 }

@@ -2,11 +2,17 @@
 .selected{
     transform: translateY(2px) !important;
     border:none !important;
-    background-color:  rgb(56, 0, 56) !important;
+    background-color: #3a93eb !important;
 }
 
 li.selected > a{
     color: #fff;
     filter: drop-shadow(0 0 5px #fff);
 
+}
+
+li.next,
+li.previous
+{
+    border-radius: 50px !important;
 }
