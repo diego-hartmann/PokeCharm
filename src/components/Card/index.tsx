@@ -33,17 +33,16 @@ const Card = ( { pokemon } : IProps ) => {
   // getting pokemon sprite url
   const sprite : string = pokemon.sprites.other.dream_world.front_default;
 
-  // both id and isFav states are used to handle the favorite list regarding this pokemon.
-  // the id is the number state that will be pushed or removed from the list
-  const [id, setId] = useState<number>();
-  // the isFav state updates the visual render of the card
+  // isFav states is used to specifies if this Card points to a pokemon that is in user's pokedex.
+  // also, used to update the localstorage list, adding or removing this pokemon.
+  // the isFav state updates the visual render of the card too.
   const [ isFav, setIsFav ] = useState(false);
 
   useEffect( ()=> {
     // here, I am updating the isFav state based on favList content
     setIsFav( favPokesIds.includes(pokemon.id) );
     // also, updating the id of this card.
-    setId(pokemon.id);
+    // setId(pokemon.id);
   }, [setIsFav, isFav, pokemon] )
 
 
@@ -75,13 +74,13 @@ const Card = ( { pokemon } : IProps ) => {
       // adding this pokemon to fav list
       if(_isFav) {
         // adding this new pokemon into the new list.
-          newFavs.push(id!!)
+          newFavs.push(pokemon.id)
           // then, adding all ints content into the new array too.
           Array.from(oldFavs)?.forEach( fav => newFavs.push(fav) );
       }else{
         // otherwise, remove this pokemon from fav list
         // filtering it without the current pokemon
-        newFavs = oldFavs.filter( ( item:any ) => item !== id );
+        newFavs = oldFavs.filter( ( item:any ) => item !== pokemon.id );
       }
 
       // replaicing the old list with the newer one.
