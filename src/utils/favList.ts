@@ -4,6 +4,6 @@ export const favList = {
     },
     get(){
         // @ts-ignore
-        return JSON.parse(localStorage.getItem("favs"))
+        return JSON.parse(localStorage.getItem("favs")) ?? []
     }
 }

@@ -1,11 +1,19 @@
+// style
 import css from './index.module.css';
-import { useEffect, useState } from 'react';
-import { favList } from '../../utils/favList';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+
+// importing native hooks
+import { useEffect, useState, useContext } from 'react';
+// importing the context object
 import Context from '../../context';
 
-interface IProps { pokemon : any }
+// hook for navigation though routes
+import { useNavigate } from 'react-router-dom';
+
+// importing the localstorage fav reference list
+import { favList } from '../../utils/favList';
+import { IPokemon } from '../../data/@types/IPokemon';
+
+interface IProps { pokemon : IPokemon }
 
 const Card = ( { pokemon } : IProps ) => {
 
@@ -70,7 +78,8 @@ const Card = ( { pokemon } : IProps ) => {
       favList.set(newFavs); // localstorage to PokeDex get this information 
       setFavPokesIds(newFavs) // contaxt state to App update certain features.
 
-    }catch(err){
+    }
+    catch(err){
       console.log(err);
     }
   }

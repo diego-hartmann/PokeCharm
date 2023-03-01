@@ -1,10 +1,16 @@
+// I created this hook to for axios.get modulation.
+// it encapsulates both useState and useEffect,
+// so there is no need to call both hook inside the component
+// since they are being modulated into this single hook.
+// It returns an object containing dinamic states based on the request result.
+
 // importing the hooks that are going to be bootstraped
 import { useState, useEffect } from 'react';
 
 // dealing with axios
 import axios, { CancelTokenSource } from 'axios';
 
-// importing our custom types
+// importing custom types
 import { IResult } from './dependencies';
 import { IPokemon } from '../../data/@types/IPokemon';
 
@@ -12,7 +18,7 @@ import { IPokemon } from '../../data/@types/IPokemon';
 /**
  * Hook for making GET requests to POKEAPI. 
  * @param count the number of pokemons to be displayed.
- * @returns an object holding the states of the request.
+ * @returns an object {isLoading, pokemons, isSuccess, errorMessage} holding the states of the request.
  */
 const usePokeList = ( count : number = 150) => {
 
