@@ -50,7 +50,6 @@ const PokeInfo = ( ) => {
             {/* info data ---------------------------------------- */}
             <section className={css.infoData}>
               <ul>
-                <li><p>{`Name: ${selectedPokemon?.name}`}</p></li>
                 <li><p>{`Id: ${selectedPokemon?.id}`}</p></li>
                 <li><p>{`Order: ${selectedPokemon?.order}`}</p></li>
                 <li><p>{`Height: ${selectedPokemon?.height}`}</p></li>

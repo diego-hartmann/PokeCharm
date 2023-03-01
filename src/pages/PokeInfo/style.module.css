@@ -30,7 +30,7 @@
     top: 0; left: 0;
     content: "";
     z-index: 2;
-    backdrop-filter: blur(9px);
+    backdrop-filter: blur(5px);
 }
 
 .darken{
@@ -67,12 +67,14 @@
 
 /* the card */
 .cardScaler > div{
-    /* backdrop-filter: blur(5px); */
+    backdrop-filter: blur(5px);
     background-color: transparent ;
+    box-shadow: 0 0 5px #00000065;
+
 }
 
 .cardScaler > div:hover{
-    box-shadow: none;
+    box-shadow: 0 0 5px #00000065;
 }
 
 .container img{
