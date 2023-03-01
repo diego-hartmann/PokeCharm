@@ -15,6 +15,9 @@ import Context from "../../context";
  */
 const PokeDex = ( ) =>  
 {
+  // 'favPokesIds' is populated with the localStorage fav list values.
+  // 'pokemons' is populated with the list from the pokeapi request.
+  // both are populated ito Provider component on init
   const { favPokesIds, pokemons } = useContext(Context);
   
   return (
