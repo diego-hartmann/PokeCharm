@@ -5,7 +5,7 @@
     align-items: center;
     height: fit-content;
     /* position: relative; */
-    padding-top: 170px;
+    padding-top: 140px;
     z-index: 0;
 }
 .bgImage{
@@ -32,6 +32,7 @@
     z-index: 2;
     backdrop-filter: blur(9px);
 }
+
 .darken{
     position: absolute;
     width: 100%;
@@ -54,10 +55,20 @@
     transform: scale(2);
     z-index: 5;
 }
+
+/* the card */
 .cardScaler > div{
-    backdrop-filter: blur(5px);
-    background-color: transparent !important;
+    /* backdrop-filter: blur(5px); */
+    background-color: transparent ;
 }
+.cardScaler > div:hover{
+    backdrop-filter: blur(5px);
+    /* background-color: transparent !important; */
+    box-shadow: none;
+    /* filter: drop-shadow(0 0 2px #fff); */
+    /* border: 1px solid #fff; */
+}
+
 
 .container span {
     color: #fff

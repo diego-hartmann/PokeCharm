@@ -47,25 +47,56 @@ const PokeInfo = ( ) => {
       <>
         <Header/>
         {
+
+
           hasPoke &&
           <div className={css.container}>
-            
 
+
+
+
+
+            {/* absolute displayed elements to apply effects ---- */}
             <div className={css.bgImage} style={{ backgroundImage: `url(${sprite})` }} />
             <div className={css.blur}/>
             <div className={css.darken}/>
-            
+            {/* ------------------------------------------------- */}
+
+
+
+
+
+
+            {/* card with name, image and fav btn ----------------*/}
             <div className={css.cardScaler}>
               <Card pokemon={selectedPokemon} />
             </div>
+            {/* ------------------------------------------------- */}
+
+
+
+
+
+
+
+            {/* info data ---------------------------------------- */}
             <span>{`Name: ${selectedPokemon?.name}`}</span>
             <span>{`Id: ${selectedPokemon?.id}`}</span>
             <span>{`Order: ${selectedPokemon?.order}`}</span>
             <span>{`Height: ${selectedPokemon?.height}`}</span>
             <span>{`Weight: ${selectedPokemon?.weight}`}</span>
             <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
+            {/* ------------------------------------------------- */}
+            
+            
+
+
+
+
+            {/* status list ------------------------------------- */}
             <span>{`Abilities: ${selectedPokemon?.abilities}`}</span>
             <span>{`Stats: ${selectedPokemon?.stats}`}</span>
+            {/* ------------------------------------------------- */}
             
             
 
