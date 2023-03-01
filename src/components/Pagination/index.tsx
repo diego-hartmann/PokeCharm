@@ -1,15 +1,22 @@
-// This component is imported from https://github.com/AdeleD/react-paginate
-// I am not removing the original comments from this file, just refactor some code.
-
+// native hooks
 import { useState } from 'react';
-import ReactPaginate from 'react-paginate';
-import Card from '../Card';
-import css from './style.module.css';
-import './selected.css'
-import { IPokemon } from '../../data/@types/IPokemon';
-// Example items, to simulate fetching from another resources.
 
-const Items = ({ currentItems }:any) => {
+// This Component is imported from https://github.com/AdeleD/react-paginate
+import ReactPaginate from 'react-paginate';
+import './selected.css' // plain css to fit the fixed classnames from the ReactPaginate elements
+
+// Card component to serve as an item of the list
+import Card from '../Card';
+
+// styles
+import css from './style.module.css';
+
+// types
+import { IPokemon } from '../../data/@types/IPokemon';
+
+
+// the list of Cards for the pokemóns, based on the current pokemons on pagination
+const Cards = ({ currentItems }:any) => {
   return (
     <div className={css.items} >
       {currentItems?.map((item:any, key:number) => <Card key={key} pokemon={item} />)}
@@ -22,33 +29,39 @@ interface IProps {
     pokemonsToShow: IPokemon[],
 }
 
+/**
+ * Component that renders the pagination to be used in any page.
+ * @param pokemonsToShow receives a list of pokemons to be showed. 
+ * @param pokemonsPerPage defines max number of pokemons to be shown in each page. 
+ * @returns the pagination component.
+ */
 const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
 
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
+  // pagination limit
   const [itemOffset, setItemOffset] = useState(0);
-
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
+  
+  // limit based on pokemon
   const endOffset = itemOffset + pokemonsPerPage;
-  const currentItems = pokemonsToShow.slice(itemOffset, endOffset);
+  
+  // pokemons showed in current page based on the above data. 
+  const currentPokemons = pokemonsToShow.slice(itemOffset, endOffset);
+  
+  // number of pages based on the pokemons number and their distribuition
   const pageCount = Math.ceil(pokemonsToShow.length / pokemonsPerPage);
 
-  // Invoke when user click to request another page.
+
+  // When the user clicks another page number.
   const handlePageClick = ( event : any ) => {
+    // updates the offset of the pagination so it displays new pokemons on 'currItems' props from <Cards/>
     const newOffset = (event.selected * pokemonsPerPage) % pokemonsToShow.length;
     setItemOffset(newOffset);
-    console.log(event.selected)
-
-    // const container = document.querySelector('[aria-label="Pagination"]');
-    // const selected = container?.querySelector('.selected');
-    // selected.style
   };
 
+
+  // component itself.
   return (
     <div className={css.container}>
-      <Items currentItems={currentItems} />
+      <Cards currentItems={currentPokemons} />
       <ReactPaginate
         className={css.selector}
         breakLabel="..."

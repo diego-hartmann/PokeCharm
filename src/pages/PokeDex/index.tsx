@@ -1,12 +1,24 @@
+// pagination feature
 import Pagination from "../../components/Pagination"
+
+// common header component with the buttons menu to change pages
 import Header from "../../patterns/Header";
+
+//native hoks
 import { useContext, useEffect, useState } from "react";
+
+// context api
 import Context from "../../context";
+
+// types
 import { IPokemon } from "../../data/@types/IPokemon";
 
 // importing the localStorage helper for the favorite list of pokemons.
 import { favList } from "../../utils/favList";
 
+/**
+ * A pagination with only the favorited pokemons saved by the user. 
+ */
 const PokeDex = ( ) =>  
 {
   // getting global data from context.

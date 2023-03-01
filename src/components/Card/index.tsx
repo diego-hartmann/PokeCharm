@@ -13,20 +13,30 @@ import { useNavigate } from 'react-router-dom';
 import { favList } from '../../utils/favList';
 import { IPokemon } from '../../data/@types/IPokemon';
 
+// the Card will receive a pokemon as props to handle its info.
 interface IProps { pokemon : IPokemon }
 
+/**
+ * Renders a Card for the pokemón.
+ * Contains its name, image and a button to favorite.
+ * @param pokemon must receive an IPokemon object 
+ * @returns 
+ */
 const Card = ( { pokemon } : IProps ) => {
 
+  // getting navigation
   const navigateTo = useNavigate();
   
+  // getting states from context
   const { setSelectedPokemon , setFavPokesIds} = useContext(Context);
 
-  // other.dreamworld
+  // getting pokemon sprite url
   const sprite : string = pokemon.sprites.other.dream_world.front_default;
 
-
-  // both id and isFav states are used to handle the favorite list regarting this pokemon.
+  // both id and isFav states are used to handle the favorite list regarding this pokemon.
+  // the id is the number state that will be pushed or removed from the list
   const [id, setId] = useState<number>();
+  // the isFav state updates the visual render of the card
   const [ isFav, setIsFav ] = useState(false);
 
   useEffect( ()=> {
@@ -43,7 +53,7 @@ const Card = ( { pokemon } : IProps ) => {
    */
   function openPage(){
     // RouteAPI
-    setSelectedPokemon(pokemon);
+    setSelectedPokemon(pokemon); // setting the global selected pokemon, so the custom page will load its data
     navigateTo('/info');
   }
 
@@ -84,6 +94,7 @@ const Card = ( { pokemon } : IProps ) => {
     }
   }
 
+  // rendering component
   return (
     <div className={css.container} data-selected={isFav}>
       <div className={css.name} >{pokemon.name}</div>

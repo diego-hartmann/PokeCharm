@@ -11,7 +11,9 @@ import { useState, useEffect } from 'react';
 import axios, { CancelTokenSource } from 'axios';
 
 // importing custom types
-import { IResult } from './dependencies';
+
+import { IRequestResult } from '../../data/@types/IRequestResult';
+
 import { IPokemon } from '../../data/@types/IPokemon';
 
 
@@ -96,7 +98,7 @@ const usePokeList = ( count : number = 150) => {
 
     //#region ==============-- RETURNING THE OBJECT WITH THE STATES --===================================
     // returning all the states at one object to be updated into the caller Component after finishing the useEffect callback.
-    const resultData : IResult = { pokemons, isLoading, isSuccess, errorMessage }; 
+    const resultData : IRequestResult = { pokemons, isLoading, isSuccess, errorMessage }; 
     return resultData;
     //#endregion ________________________________________________________________________________________
 

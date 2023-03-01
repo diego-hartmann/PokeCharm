@@ -64,7 +64,7 @@ documentation for more details).
 
 ⚠️ The app should be responsive (adapt UI so it can be displayed in different screen sizes).
 
-⚠️ The code should contain comments.
+✔️ The code should contain comments.
 
 ✔️ The application code should be submitted in GitHub.
 

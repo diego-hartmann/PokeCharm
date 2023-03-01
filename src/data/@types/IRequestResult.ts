@@ -1,11 +1,9 @@
-import { AxiosResponse } from 'axios';
 import { IPokemon } from '../../data/@types/IPokemon';
 
-export interface IResult {
+export interface IRequestResult {
     pokemons : IPokemon[],
     isLoading : boolean,
     isSuccess : boolean,
     errorMessage : string
 }
 
-export type TPromiseToAxiosResponse = ()=> Promise<AxiosResponse<any,any>>;

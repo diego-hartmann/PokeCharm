@@ -7,14 +7,17 @@ import { IPokemon } from '../data/@types/IPokemon';
 // importing the localstorage fav list reference to get and set
 import { favList } from '../utils/favList';
 
+/**
+ * The data provider to all the components to state sharing. 
+ */
 const Provider = ( { children }: IProviderProps ) => {
 
     // states coming from the custom request hook, to get all the pokemon data.
     const { pokemons, isLoading } = usePokeList();
 
     // creating a global state for favorites IDS for rerender propouses.
-    // the content managment is handled by localStorage.
-    // This state itself is first populated with the localStorage fav list 
+    // the favorite list is saved into localStorage 'fav' array,
+    // so this state is first populated with 'fav' content whenever the app is initialized. 
     const [ favPokesIds, setFavPokesIds ] = useState<number[]>([]);
     
     // this state handles which pokemon was selected,
@@ -23,9 +26,9 @@ const Provider = ( { children }: IProviderProps ) => {
 
     useEffect(()=>{
         if(!pokemons) return () => console.log("No pokemon fetched yet.");
-        const FavList : number[] = favList.get();
-        setFavPokesIds(FavList);
-  }, [ pokemons ])
+        // populating the state with the list  from localstorage to be passed though all the components
+        setFavPokesIds(favList.get());
+    }, [ pokemons ])
 
     return (
         <Context.Provider value={ { pokemons, favPokesIds, isLoading, setFavPokesIds, selectedPokemon, setSelectedPokemon } }>

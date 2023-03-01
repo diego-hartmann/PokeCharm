@@ -1,14 +1,30 @@
+// common header component with the buttons menu to change pages
+import Header from "../../patterns/Header";
+
+// context api
 import Context from "../../context"
+
+// native hooks
 import { useContext, useEffect, useState } from "react"
+
+// components
 import Card from "../../components/Card"
-import Header from "../../patterns/Header"
+
+// routes
 import { useNavigate } from 'react-router-dom'
 
+// style
 import css from './style.module.css';
 
+/**
+ * Page containing information about the selected pokemón. 
+ */
 const PokeInfo = ( ) => {
   
+  // getting which pokemon was selected so this component displays its info.
   const { selectedPokemon, favPokesIds } = useContext(Context);
+  
+  // routes
   const navigateTo = useNavigate();
 
   // state to check if there is a pokemon passed to this rote thorugh the selectedPokemon
@@ -21,6 +37,7 @@ const PokeInfo = ( ) => {
       navigateTo('/');
       return;
     }
+    // set flag to true so it renders the component.
     setHasPoke(true);
   },[])
 
