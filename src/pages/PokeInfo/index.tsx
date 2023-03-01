@@ -29,7 +29,6 @@ const PokeInfo = ( ) => {
           hasPoke &&
           <div className={css.container}>
             <Card pokemon={selectedPokemon} />
-            <img src={selectedPokemon?.sprites?.other?.dream_world?.front_default} />
             <span>{`Name: ${selectedPokemon?.name}`}</span>
             <span>{`Id: ${selectedPokemon?.id}`}</span>
             <span>{`Order: ${selectedPokemon?.order}`}</span>
@@ -38,6 +37,7 @@ const PokeInfo = ( ) => {
             <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
             <span>{`Abilities: ${selectedPokemon?.abilities}`}</span>
             <span>{`Stats: ${selectedPokemon?.stats}`}</span>
+            <img src={selectedPokemon?.sprites?.other?.dream_world?.front_default} />
           </div>
         }
     </> 
