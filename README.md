@@ -43,6 +43,10 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 <img src="https://v4.material-ui.com/static/logo.png" width="50px" height="50px" />
 
+[React-Responsive](https://mui.com/) for media-query check inside components.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="55px" height="50px" />
+
 
 ## Functional requirements:
 ✔️ The user should be able to see a main screen with a list of all Pokémons (with 
