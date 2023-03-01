@@ -6,8 +6,8 @@ import { IPokemon } from "../../data/@types/IPokemon";
 const PokeDex = ( ) =>  
 {
   const { favPokesIds, pokemons } = useContext(Context);
+
   
-  // generating a new IPoke list based on the ID list from context.
   let pokes : IPokemon[] = [];
   pokemons.forEach(poke => {
     if(favPokesIds.includes(poke.id)){

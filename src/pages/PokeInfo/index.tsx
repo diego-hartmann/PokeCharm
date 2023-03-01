@@ -8,10 +8,12 @@ import css from './style.module.css';
 
 const PokeInfo = ( ) => {
   
-  const { selectedPokemon } = useContext(Context);
+  const { selectedPokemon, favPokesIds } = useContext(Context);
   const navigateTo = useNavigate();
 
-  const [hasPoke, setHasPoke] = useState(false);
+  // state to check if there is a pokemon passed to this rote thorugh the selectedPokemon
+  const [hasPoke, setHasPoke] = useState(selectedPokemon !== undefined);
+
   
   useEffect(()=>{
     // if the the user access this route and there is no pokemon selected, go back.
@@ -27,8 +29,12 @@ const PokeInfo = ( ) => {
         <Header/>
         {
           hasPoke &&
-          <div className={css.container}>
-            <Card pokemon={selectedPokemon} />
+          <div className={css.container} style={{
+            backgroundImage: `url(${selectedPokemon?.sprites?.other?.dream_world?.front_default})`,
+          }}>
+            <div className={css.cardScaler}>
+              <Card pokemon={selectedPokemon} />
+            </div>
             <span>{`Name: ${selectedPokemon?.name}`}</span>
             <span>{`Id: ${selectedPokemon?.id}`}</span>
             <span>{`Order: ${selectedPokemon?.order}`}</span>
@@ -37,7 +43,7 @@ const PokeInfo = ( ) => {
             <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
             <span>{`Abilities: ${selectedPokemon?.abilities}`}</span>
             <span>{`Stats: ${selectedPokemon?.stats}`}</span>
-            <img src={selectedPokemon?.sprites?.other?.dream_world?.front_default} />
+            {/* <img src={selectedPokemon?.sprites?.other?.dream_world?.front_default} /> */}
           </div>
         }
     </> 

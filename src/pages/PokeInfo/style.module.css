@@ -1,10 +1,42 @@
 .container{
+    padding: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: fit-content;
+    background-position-y: -200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top: 170px;
+    z-index: 0;
 }
+.container::after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 18, 18, 0.582);
+    display: block;
+    pointer-events: none;
+    top: 0; left: 0;
+    content: "";
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
 .container * {
+    z-index: 2;
     background-color: transparent;
+}
+
+.cardScaler{
+    height: fit-content;
+    width: fit-content;
+    transform: scale(2);
+    z-index: 3;
+}
+.cardScaler > div{
+    backdrop-filter: blur(5px);
 }
 
 .container span {
@@ -12,5 +44,5 @@
 }
 
 .container img{
-    width: 500px;
+    width: 100%;
 }

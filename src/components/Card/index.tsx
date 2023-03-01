@@ -2,7 +2,6 @@ import css from './index.module.css';
 import { useEffect, useState } from 'react';
 import { favList } from '../../utils/favList';
 import { useNavigate } from 'react-router-dom';
-// import { IPokemon } from '../../data/@types/IPokemon';
 import { useContext } from 'react';
 import Context from '../../context';
 
@@ -12,26 +11,10 @@ const Card = ( { pokemon } : IProps ) => {
 
   const navigateTo = useNavigate();
   
-  const { setSelectedPokemon } = useContext(Context);
-
-  // default
-  const front_default : string = pokemon.sprites.front_default;
-  const back_default : string = pokemon.sprites.back_default;
-  
-  // shiny
-  const front_shiny : string = pokemon.sprites.front_shiny;
-  const back_shiny : string = pokemon.sprites.back_shiny;
+  const { setSelectedPokemon , setFavPokesIds} = useContext(Context);
 
   // other.dreamworld
-  const front_default_dreamworld : string = pokemon.sprites.other.dream_world.front_default;
-
-  // other.home
-  const front_default_home : string = pokemon.sprites.other.home.front_default;
-  const front_shiny_home : string = pokemon.sprites.other.home.front_shiny;
-
-  // other.official-artwork
-  const front_default_art : string = pokemon.sprites.other['official-artwork'].front_default;
-  const front_shiny_art : string = pokemon.sprites.other['official-artwork'].front_shiny;
+  const sprite : string = pokemon.sprites.other.dream_world.front_default;
 
 
   // both id and isFav states are used to handle the favorite list regarting this pokemon.
@@ -54,18 +37,6 @@ const Card = ( { pokemon } : IProps ) => {
     // RouteAPI
     setSelectedPokemon(pokemon);
     navigateTo('/info');
-    console.clear();
-    // console.log(pokemon);
-    console.log(pokemon.name);
-    console.log(front_default_dreamworld);
-    console.log(pokemon.id);
-    console.log(pokemon.order);
-    console.log(pokemon.height);
-    console.log(pokemon.weight);
-    console.log(pokemon.base_experience);
-    console.log(pokemon.abilities);
-    console.log(pokemon.stats);
-
   }
 
   function toggleFav(){
@@ -96,7 +67,8 @@ const Card = ( { pokemon } : IProps ) => {
       }
 
       // replaicing the old list with the newer one.
-      favList.set(newFavs); 
+      favList.set(newFavs); // localstorage to PokeDex get this information 
+      setFavPokesIds(newFavs) // contaxt state to App update certain features.
 
     }catch(err){
       console.log(err);
@@ -106,7 +78,7 @@ const Card = ( { pokemon } : IProps ) => {
   return (
     <div className={css.container} data-selected={isFav}>
       <div className={css.name} >{pokemon.name}</div>
-      <img onClick={openPage} className={css.sprite} src={front_default_dreamworld} />
+      <img onClick={openPage} className={css.sprite} src={sprite} />
       <div className={css.fav}>
         <i onClick={toggleFav} className="fas fa-star"></i>
       </div>
