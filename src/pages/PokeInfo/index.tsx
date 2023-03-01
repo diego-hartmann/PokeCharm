@@ -45,7 +45,7 @@ const PokeInfo = ( ) => {
 
   return(
       <>
-        <Header/>
+        <Header pageIndex={2}/>
         {
 
 

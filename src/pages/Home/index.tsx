@@ -18,7 +18,7 @@ const Home = ( ) => {
   
   return (
     <>
-      <Header />
+      <Header pageIndex={0}/>
       <Pagination pokemonsToShow={pokemons} pokemonsPerPage={12} /> 
     </>
   )

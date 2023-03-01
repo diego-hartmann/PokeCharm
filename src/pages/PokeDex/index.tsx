@@ -22,7 +22,7 @@ const PokeDex = ( ) =>
   
   return (
   <>
-    <Header/>
+    <Header pageIndex={1}/>
     {/* getting only ID(number) list from pokemon objects list */}
     <Pagination pokemonsToShow={    pokemons.filter( poke => favPokesIds.includes(poke.id) )     } pokemonsPerPage={4}/>
   </>

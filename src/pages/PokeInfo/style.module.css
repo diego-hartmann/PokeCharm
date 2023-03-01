@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: space-between;
     /* height: fit-content; */
-    height: calc(100vh - 133px);
+    height: calc(100vh - 140px);
     z-index: 0;
 }
 .bgImage{
