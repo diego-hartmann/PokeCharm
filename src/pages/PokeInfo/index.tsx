@@ -69,23 +69,23 @@ const PokeInfo = ( ) => {
 
 
             {/* info data ---------------------------------------- */}
-            <div className={css.infoData}>
+            <section className={css.infoData}>
               <span>{`Name: ${selectedPokemon?.name}`}</span>
               <span>{`Id: ${selectedPokemon?.id}`}</span>
               <span>{`Order: ${selectedPokemon?.order}`}</span>
               <span>{`Height: ${selectedPokemon?.height}`}</span>
               <span>{`Weight: ${selectedPokemon?.weight}`}</span>
               <span>{`Base experience: ${selectedPokemon?.base_experience}`}</span>
-            </div>
+            </section>
             {/* ------------------------------------------------- */}
 
 
 
 
             {/* card with name, image and fav btn ----------------*/}
-            <div className={css.cardScaler}>
+            <section className={css.cardScaler}>
               <Card pokemon={selectedPokemon} />
-            </div>
+            </section>
             {/* ------------------------------------------------- */}
 
 
@@ -95,10 +95,10 @@ const PokeInfo = ( ) => {
 
 
             {/* status lists ------------------------------------- */}
-            <div className={css.statusLists}>
+            <section className={css.statusLists}>
               {<span>{`Abilities: ${selectedPokemon?.abilities}`}</span>}
               {<span>{`Stats: ${selectedPokemon?.stats}`}</span>}
-            </div>
+            </section>
             {/* ------------------------------------------------- */}
             
             

@@ -49,11 +49,18 @@
     z-index: 4;
 }
 
+.container > section{
+    width: 33%;
+    /* border: 1px solid red; */
+}
+
 .cardScaler{
     height: fit-content;
     width: fit-content;
     transform: scale(2);
     z-index: 5;
+    display: grid;
+    place-items:center;
 }
 
 /* the card */
