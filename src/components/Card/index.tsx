@@ -96,7 +96,7 @@ const Card = ( { pokemon } : IProps ) => {
   // rendering component
   return (
     <div className={css.container} data-selected={isFav}>
-      <div className={css.name} >{pokemon.name}</div>
+      <span className={css.name} >{pokemon.name}</span>
       <img onClick={openPage} className={css.sprite} src={sprite} />
       <div className={css.fav}>
         <i onClick={toggleFav} className="fas fa-star"></i>
