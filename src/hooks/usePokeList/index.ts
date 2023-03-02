@@ -25,7 +25,7 @@ import { cashedPokemons } from '../../utils/cashedPokemons';
  * @param count the number of pokemons to be displayed.
  * @returns an object {isLoading, pokemons, isSuccess, errorMessage} holding the states of the request.
  */
-const usePokeList = ( count : number = 150) => {
+const usePokeList = ( count : number ) => {
 
 
 

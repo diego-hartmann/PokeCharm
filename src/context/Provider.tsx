@@ -13,7 +13,8 @@ import { favList } from '../utils/favList';
 const Provider = ( { children }: IProviderProps ) => {
 
     // states coming from the custom request hook, to get all the pokemon data.
-    const { pokemons, isLoading } = usePokeList();
+    // const { pokemons, isLoading } = usePokeList(898); // all pokemons are too many to frontend to handle
+    const { pokemons, isLoading } = usePokeList(150);
 
     // creating a global state for favorites IDS for rerender propouses.
     // the favorite list is saved into localStorage 'fav' array,
