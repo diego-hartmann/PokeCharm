@@ -22,8 +22,6 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
   const { favPokesIds } = useContext(Context);
   const noneFavs = favPokesIds.length === 0;
 
-  console.log('noneFavs', noneFavs);
-
   interface IPage{ name: string, path: string, color: string, disabled : boolean }
   const pages : IPage[] = [
     { name: 'Home',    path: '',        color: '#fff', disabled: false },
@@ -55,11 +53,14 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
         // dinamicaly defining the method onClick based on flags
         function onClickDecorator(){
 
+          console.log('disabled', disabled);
+          console.log('isSelected', isSelected);
+
           // function for disabled button.
           if(disabled) return () => shakeAnim('pokeball');
 
           // function for already selected button.
-          if(isSelected) return () => shakeAnim('sticker');
+          if(isSelected) return () => shakeAnim('poke');
 
           // function to navigate.
           return ()=> navigateTo(`/${path}`) 
