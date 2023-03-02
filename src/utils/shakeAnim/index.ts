@@ -18,7 +18,7 @@ const isMobile = () => {
 export default (customAttr:string) => {
 
     // does not apply animation on mobile for performance propouses
-    if(isMobile()) return;
+    // if(isMobile()) return; // leave for mobile too...
     
     // getting all elements from their plain html
     const els = Array.from(document.querySelectorAll(`[data-${customAttr}]`));

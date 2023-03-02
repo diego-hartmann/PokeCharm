@@ -1,11 +1,11 @@
-import { IProviderProps } from '../data/@types/IProviderProps';
-import Context from './index';
+import { IProviderProps } from '../../data/@types/IProviderProps';
+import Context from '../index';
 import { useEffect, useState } from 'react';
-import usePokeList from '../hooks/usePokeList';
-import { IPokemon } from '../data/@types/IPokemon';
+import usePokeList from '../../hooks/usePokeList';
+import { IPokemon } from '../../data/@types/IPokemon';
 
 // importing the localstorage fav list reference to get and set
-import { favList } from '../utils/favList';
+import { favList } from '../../utils/favList';
 
 /**
  * The data provider to all the components to state sharing. 
