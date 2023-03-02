@@ -13,8 +13,11 @@ import { useNavigate } from 'react-router-dom';
 import { favList } from '../../utils/favList';
 import { IPokemon } from '../../data/@types/IPokemon';
 
+import PokeBall from './PokeBall';
+
+
 // the Card will receive a pokemon as props to handle its info.
-interface IProps { pokemon : IPokemon }
+interface IProps { pokemon : IPokemon, hover : boolean }
 
 /**
  * Renders a Card for the pokemón.
@@ -22,7 +25,7 @@ interface IProps { pokemon : IPokemon }
  * @param pokemon must receive an IPokemon object 
  * @returns 
  */
-const Card = ( { pokemon } : IProps ) => {
+const Card = ( { pokemon, hover } : IProps ) => {
 
   // getting navigation
   const navigateTo = useNavigate();
@@ -95,11 +98,11 @@ const Card = ( { pokemon } : IProps ) => {
 
   // rendering component
   return (
-    <div className={css.container} data-selected={isFav}>
+    <div className={css.container} data-selected={isFav} data-hover={hover}>
       <span className={css.name} >{pokemon.name}</span>
-      <img onClick={openPage} className={css.sprite} src={sprite} />
+      <img data-stick onClick={openPage} className={css.sprite} src={sprite} />
       <div className={css.fav}>
-        <i onClick={toggleFav} className="fas fa-star"></i>
+        <PokeBall onClick={toggleFav}/>
       </div>
     </div>
   )

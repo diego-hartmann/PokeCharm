@@ -77,7 +77,7 @@ const PokeInfo = ( ) => {
 
             {/* card with name, image and fav btn ----------------*/}
             <section className={css.cardScaler}>
-              <Card pokemon={selectedPokemon} />
+              <Card pokemon={selectedPokemon} hover={false}/>
             </section>
             {/* ------------------------------------------------- */}
 

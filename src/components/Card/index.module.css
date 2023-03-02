@@ -23,7 +23,6 @@
     animation: hithere 1s ease 1 !important;
 }
 
-
 .sprite {
     animation: bounce-in 1s ease 1;
     display: block;
@@ -33,32 +32,11 @@
     height: 50%;
     object-fit: contain;
     cursor: pointer;
-
-    --stroke-pos: 1px;
-    --stroke-neg: -1px;
-    --stroke-color: #fff;
-    --stroke-blur : 0;
-    filter:
-        
-        /* white border */
-        drop-shadow(var(--stroke-pos) 0 var(--stroke-blur) var(--stroke-color)) 
-        drop-shadow(var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
-        drop-shadow(0 var(--stroke-pos) var(--stroke-blur) var(--stroke-color))
-        drop-shadow(0 var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
-        drop-shadow(var(--stroke-pos) var(--stroke-pos) var(--stroke-blur) var(--stroke-color)) 
-        drop-shadow(var(--stroke-pos) var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
-        drop-shadow(var(--stroke-neg) var(--stroke-pos) var(--stroke-blur) var(--stroke-color))
-        drop-shadow(var(--stroke-neg) var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
-        
-        /* shadow */
-        drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.877))
-    
-    ;
 }
 
 /* not for mobile */
 @media screen and (min-width:500px) {
-    .container:hover{
+    .container[data-hover="true"]:hover{
         transform: scale(1.1);
         z-index: 2;
         box-shadow: 0 0 5px #00000071;
@@ -85,32 +63,14 @@
 }
 
 .fav{
+    display: grid;
+    place-items: center;
     width: 100%;
-    height: 20px;
-}
-.fav i{
-    color: #cccccc4d;
-    transform: scale(1);
-    transition: .15s;
-    cursor: pointer;
-}
-.fav i:hover {
-    color:#fff;
-    transform: scale(1.2);
-    /* filter: drop-shadow(0 0 5px yellow); */
 }
 
 .container[data-selected="true"] .sprite{
     animation: spin .5s cubic-bezier(0, 0.2, 0.8, 1);
 }
-
-
-.container[data-selected="true"] .fav i{
-    color:#fff;
-    filter: drop-shadow(0 0 5px yellow);
-    transform: scale(1.3);
-}
-
 
 
 /* ANIMATION REFERENCES FROM https://codepen.io/nelledejones/pen/gOOPWrK */

@@ -20,6 +20,35 @@ body {
 
 [data-style="poke"] { font-family: 'Pokemon Solid', sans-serif }
 
+:root{
+  --shadow: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.877));
+}
+[data-shadow]{
+  filter: var(--shadow);
+}
+
+[data-stick]{
+  --stroke-pos: 1px;
+  --stroke-neg: -1px;
+  --stroke-color: #fff;
+  --stroke-blur : 0;
+  filter:
+      
+      /* white border */
+      drop-shadow(var(--stroke-pos) 0 var(--stroke-blur) var(--stroke-color)) 
+      drop-shadow(var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+      drop-shadow(0 var(--stroke-pos) var(--stroke-blur) var(--stroke-color))
+      drop-shadow(0 var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+      drop-shadow(var(--stroke-pos) var(--stroke-pos) var(--stroke-blur) var(--stroke-color)) 
+      drop-shadow(var(--stroke-pos) var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+      drop-shadow(var(--stroke-neg) var(--stroke-pos) var(--stroke-blur) var(--stroke-color))
+      drop-shadow(var(--stroke-neg) var(--stroke-neg) var(--stroke-blur) var(--stroke-color))
+      
+      /* shadow */
+      var(--shadow)
+  ;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -19,7 +19,7 @@ import { IPokemon } from '../../data/@types/IPokemon';
 const Cards = ({ currentItems }:any) => {
   return (
     <div className={css.items} >
-      {currentItems?.map((item:any, key:number) => <Card key={key} pokemon={item} />)}
+      {currentItems?.map((item:any, key:number) => <Card key={key} pokemon={item} hover={true} />)}
     </div>
   );
 }
