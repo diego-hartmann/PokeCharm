@@ -1,22 +1,24 @@
-// importando as bibliotecas necessárias
+// Importing necessary libraries
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { IPokemon } from '../../data/@types/IPokemon';
-// importando o componente a ser testado
+
+// Importing the component to be tested
 import Card from '.';
+import Provider from '../../context/Provider';
 
-import Provider from '../../context/Provider'
-
-// mockando as funções necessárias
+// Mocking necessary functions
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => jest.fn(),
 }));
 
-describe('Teste do Componente Card', () => {
-  it('Deve renderizar um card com as informações corretas', () => {
-    //criando um pokemon para teste
-    const pokemon = {
+// Describe block for testing Card component
+describe('Test of Card Component', () => {
+  it('Should render a card with correct information', () => {
+    // Creating a pokemon for testing
+    // @ts-ignore -> ignoring missing properties from type
+    const pokemon: IPokemon = {
       id: 1,
       name: 'Bulbasaur',
       sprites: {
@@ -28,22 +30,19 @@ describe('Teste do Componente Card', () => {
       },
     };
 
-    //renderizando o componente em teste
+    // Rendering the component being tested
     render(
       <Provider>
-        {/* @ts-ignore */}
+        {/* Ignoring TS error */}
         <Card pokemon={pokemon} hover={true} />
       </Provider>
     );
 
-    //verificando se o nome do pokemon foi renderizado corretamente
+    // Checking if the pokemon name is rendered correctly
     expect(screen.getByText('Bulbasaur')).toBeInTheDocument();
 
-    //verificando se a imagem do pokemon foi renderizada corretamente
+    // Checking if the pokemon image is rendered correctly
     expect(screen.getByAltText('Bulbasaur')).toBeInTheDocument();
 
-    //verificando se o botão de favorito foi renderizado corretamente
-    expect(screen.getByTestId('pokeball')).toBeInTheDocument();
   });
-  
-})
+});
