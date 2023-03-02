@@ -22,6 +22,7 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
   const { favPokesIds } = useContext(Context);
   const noneFavs = favPokesIds.length === 0;
 
+  console.log('noneFavs', noneFavs);
 
   interface IPage{ name: string, path: string, color: string, disabled : boolean }
   const pages : IPage[] = [
@@ -62,7 +63,7 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
 
           // function to navigate.
           return ()=> navigateTo(`/${path}`) 
-          
+
         }
         const onClick = onClickDecorator(); 
 
