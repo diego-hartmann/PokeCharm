@@ -4,20 +4,12 @@ import { useNavigate } from 'react-router-dom'
 // getting mui comps
 import { Button, Stack } from '@mui/material';
 
-// native hooks
-import { useContext, useEffect, useState } from 'react';
-
 // to get context state
+import { useContext } from 'react';
 import Context from '../../context';
 
 // importing the shake animation functionality
 import shakeAnim from '../../utils/shakeAnim';
-
-
-
-interface IPage{ name: string, path: string, color: string, disabled : boolean }
-
-
 
 /**
  * The menu containing the buttons th navigate throught the routes.
@@ -28,24 +20,18 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
 
   // getting context state
   const { favPokesIds } = useContext(Context);
-  
-  // the pages state for updating behaviour on button click. 
-  const [ pages, setPages ] = useState<IPage[]>([])
-  
-  // checking for button states each time the fav pokemon list changes
-  useEffect(()=>{
-    const noneFavs = favPokesIds.length === 0;
-    const _pages : IPage[] = [
-      { name: 'Home',    path: '',        color: '#fff', disabled: false },
-      { name: 'Pokedex', path: 'pokedex', color: '#fff', disabled:  noneFavs},
-    ]
-    setPages(_pages);  
-  },[favPokesIds]);
+  const noneFavs = favPokesIds.length === 0;
+
+  interface IPage{ name: string, path: string, color: string, disabled : boolean }
+  const pages : IPage[] = [
+    { name: 'Home',    path: '',        color: '#fff', disabled: false },
+    { name: 'Pokedex', path: 'pokedex', color: '#fff', disabled:  noneFavs},
+  ]
 
   return (
     <Stack spacing={2} direction="row" alignItems="center" justifyContent="center">
 
-      {/* generating list of buttons based on pages state */}
+      {/* generating list of buttons */}
       {pages.map(( page : IPage, index ) => {
 
         // destructing fields.
