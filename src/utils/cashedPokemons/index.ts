@@ -1,5 +1,4 @@
-import { IPokemon } from "../data/@types/IPokemon";
-
+import { IPokemon } from "../../data/@types/IPokemon";
 // id does not work, probably due to file size.
 export const cashedPokemons = {
     set(value:IPokemon[]){
