@@ -31,6 +31,8 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 
 [Jest](https://jestjs.io/) was added into dependencies so the components and functions can be tested. 
 
+- I was struggling with css syntax error, then I downloaded [jest-css-modules](https://www.npmjs.com/package/jest-css-modules)
+
 <img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" width="50px" height="50px" />
 
 [Router](https://reactrouter.com/en/main): ```yarn add react-router-dom``` to donwload the dependencies for route managment.
