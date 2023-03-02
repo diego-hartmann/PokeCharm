@@ -53,9 +53,6 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
         // dinamicaly defining the method onClick based on flags
         function onClickDecorator(){
 
-          console.log('disabled', disabled);
-          console.log('isSelected', isSelected);
-
           // function for disabled button.
           if(disabled) return () => shakeAnim('pokeball');
 
