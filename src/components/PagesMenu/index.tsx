@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 // getting mui comps
 import { Button, Stack } from '@mui/material';
 
+// native hooks
+import { useContext, useEffect, useState } from 'react';
+
 // to get context state
-import { useContext } from 'react';
 import Context from '../../context';
 
 // importing the shake animation functionality
@@ -20,18 +22,26 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
 
   // getting context state
   const { favPokesIds } = useContext(Context);
-  const noneFavs = favPokesIds.length === 0;
-
+  
   interface IPage{ name: string, path: string, color: string, disabled : boolean }
-  const pages : IPage[] = [
-    { name: 'Home',    path: '',        color: '#fff', disabled: false },
-    { name: 'Pokedex', path: 'pokedex', color: '#fff', disabled:  noneFavs},
-  ]
+  
+  
+  const [ pages, setPages ] = useState<IPage[]>([])
+  
+  // checking for button states each time the fav pokemon list changes
+  useEffect(()=>{
+    const noneFavs = favPokesIds.length === 0;
+    const _pages : IPage[] = [
+      { name: 'Home',    path: '',        color: '#fff', disabled: false },
+      { name: 'Pokedex', path: 'pokedex', color: '#fff', disabled:  noneFavs},
+    ]
+    setPages(_pages);  
+  },[favPokesIds]);
 
   return (
     <Stack spacing={2} direction="row" alignItems="center" justifyContent="center">
 
-      {/* generating list of buttons */}
+      {/* generating list of buttons based on pages state */}
       {pages.map(( page : IPage, index ) => {
 
         // destructing fields.
