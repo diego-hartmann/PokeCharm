@@ -45,6 +45,7 @@
 }
 [data-selected="false"] .container > img:hover {
     transform: scale(1.1) rotate(360deg);
+    filter: saturate(0.5);
 }
 
 
