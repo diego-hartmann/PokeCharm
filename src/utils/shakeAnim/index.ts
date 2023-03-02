@@ -2,11 +2,23 @@ import './anim.css';
 
 const random = (max : number) => (Math.random() * max );
 
+const isMobile = () => {
+    const m = (val:any) => navigator.userAgent.match(val);
+    return (
+        m(/Android/i) || m(/webOS/i) || m(/iPhone/i)
+        || m(/iPad/i) || m(/iPod/i) || m(/BlackBerry/i)
+        || m(/Windows Phone/i)
+    )
+} 
+
 /**
  * Animates a list of html elements.
  * @param customAttr the 'data-stuff' attr (without 'data-', only 'stuff');
  */
 export default (customAttr:string) => {
+
+    // does not apply animation on mobile for performance propouses
+    if(isMobile()) return;
     
     // getting all elements from their plain html
     const els = Array.from(document.querySelectorAll(`[data-${customAttr}]`));
