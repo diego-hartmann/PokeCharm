@@ -45,7 +45,7 @@
 }
 [data-selected="false"] .container > img:hover {
     transform: scale(1.1) rotate(360deg);
-    filter: saturate(0.5);
+    /* filter: saturate(0.5); */
 }
 
 
@@ -54,7 +54,7 @@
 }
 [data-selected="true"] .container > img:hover {
     transform: scale(0.9) rotate(-360deg);
-    filter: opacity(0.5);
+    /* filter: opacity(0.5); */
 }
 
 @keyframes rotate-right {
