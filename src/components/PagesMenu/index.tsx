@@ -13,6 +13,12 @@ import Context from '../../context';
 // importing the shake animation functionality
 import shakeAnim from '../../utils/shakeAnim';
 
+
+
+interface IPage{ name: string, path: string, color: string, disabled : boolean }
+
+
+
 /**
  * The menu containing the buttons th navigate throught the routes.
  */
@@ -23,9 +29,7 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
   // getting context state
   const { favPokesIds } = useContext(Context);
   
-  interface IPage{ name: string, path: string, color: string, disabled : boolean }
-  
-  
+  // the pages state for updating behaviour on button click. 
   const [ pages, setPages ] = useState<IPage[]>([])
   
   // checking for button states each time the fav pokemon list changes
