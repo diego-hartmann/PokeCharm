@@ -27,7 +27,7 @@ body {
   filter: var(--shadow);
 }
 
-[data-stick]{
+[data-sticker]{
   --stroke-pos: 1px;
   --stroke-neg: -1px;
   --stroke-color: #fff;

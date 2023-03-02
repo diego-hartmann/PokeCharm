@@ -100,7 +100,7 @@ const Card = ( { pokemon, hover } : IProps ) => {
   return (
     <div className={css.container} data-selected={isFav} data-hover={hover}>
       <span className={css.name} >{pokemon.name}</span>
-      <img data-stick onClick={openPage} className={css.sprite} src={sprite} />
+      <img data-sticker onClick={openPage} className={css.sprite} src={sprite} />
       <div className={css.fav}>
         <PokeBall onClick={toggleFav}/>
       </div>
