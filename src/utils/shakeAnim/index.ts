@@ -37,7 +37,7 @@ export default (customAttr:string) => {
                 // css anim duration.
             }, 820)
         
-        }, random(300))
+        }, random(200))
 
     });
 }
