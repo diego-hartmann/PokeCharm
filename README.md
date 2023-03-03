@@ -97,4 +97,4 @@ documentation for more details).
 
 ✔️ Router.
 
-⚠️ Unit tests in functions and components.
+✔️ Unit tests in functions and components.
