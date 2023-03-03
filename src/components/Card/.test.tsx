@@ -33,7 +33,6 @@ describe('Test of Card Component', () => {
     // Rendering the component being tested
     render(
       <Provider>
-        {/* Ignoring TS error */}
         <Card pokemon={pokemon} hover={true} />
       </Provider>
     );
