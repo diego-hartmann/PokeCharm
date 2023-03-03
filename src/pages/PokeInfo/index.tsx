@@ -26,23 +26,25 @@ import { selectedPoke } from "../../utils/selectedPoke";
 const PokeInfo = ( ) => {
   
   // getting which pokemon was selected so this component displays its info.
-  const { selectedPokemon  } = useContext(Context);
+  const { selectedPokemon , setSelectedPokemon } = useContext(Context);
   
+  
+
+  // getting the reference of the selectedPokemon, of from the local storage.
+  // this is the internal pokemon obj to handle its info.
+  const [localPoke, setLocalPoke] = useState(selectedPokemon);
+
+
   const sprite = selectedPokemon?.sprites?.other?.dream_world?.front_default;
 
-  // getting the copy of the selectedPokemon, of from the local storage.
-  // this is the internal pokemon obj to handle its info.
-  const [localPoke, setLocalPoke] = useState<IPokemon>(selectedPokemon);
-
-  // if there is no pokemon into state, get it from local storage.
   useEffect( ()=>{
-  
-    // setLocalPoke(selectedPokemon ?? selectedPoke.get());
-    // ^ not working ^
+    
+    const pokeBackup = selectedPoke.get();
+    
+    setLocalPoke( selectedPokemon || pokeBackup );
 
-    setLocalPoke(selectedPokemon);
-  
-  }, [])
+  }, [selectedPokemon] )
+
 
   return(
       <>
