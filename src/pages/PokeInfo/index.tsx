@@ -17,7 +17,9 @@ import css from './style.module.css';
 import { IPokemon, IPokemonAbility, IPokemonStatus } from "../../data/@types/IPokemon";
 
 import BGEffect from "../../components/BGEffect";
-import { selectedPoke } from "../../utils/selectedPoke";
+
+// getting fallback pokemon
+import { getSkeleton } from "./skeleton";
 
 
 /**
@@ -26,25 +28,21 @@ import { selectedPoke } from "../../utils/selectedPoke";
 const PokeInfo = ( ) => {
   
   // getting which pokemon was selected so this component displays its info.
-  const { selectedPokemon , setSelectedPokemon } = useContext(Context);
+  const { selectedPokemon } = useContext(Context);
+  
+  const [currPoke, setCurrPoke] = useState<IPokemon>(selectedPokemon);
+  
+
+  useEffect(()=>{
+    const skeleton = getSkeleton();
+    // if there is not a selectedPokemon yet, use the skeleton.
+    setCurrPoke(selectedPokemon || skeleton);
+    // The Provier is trying to update the selectedPokemon while so.
+  },[selectedPokemon])
   
   
 
-  // getting the reference of the selectedPokemon, of from the local storage.
-  // this is the internal pokemon obj to handle its info.
-  const [localPoke, setLocalPoke] = useState(selectedPokemon);
-
-
-  const sprite = selectedPokemon?.sprites?.other?.dream_world?.front_default;
-
-  useEffect( ()=>{
-    
-    const pokeBackup = selectedPoke.get();
-    
-    setLocalPoke( selectedPokemon || pokeBackup );
-
-  }, [selectedPokemon] )
-
+  const localPokemon = currPoke;
 
   return(
       <>
@@ -54,7 +52,7 @@ const PokeInfo = ( ) => {
           <div className={css.info}>
 
 
-            <BGEffect id={localPoke?.id} />
+            <BGEffect id={localPokemon?.id} />
 
 
 
@@ -63,23 +61,23 @@ const PokeInfo = ( ) => {
               <ul>
                 <li>
                   <p>Id</p>
-                  <span>{localPoke?.id}</span>
+                  <span>{localPokemon?.id}</span>
                 </li>
                 <li>
                   <p>Order</p>
-                  <span>{localPoke?.order}</span>
+                  <span>{localPokemon?.order}</span>
                 </li>
                 <li>
                   <p>Height</p>
-                  <span>{localPoke?.height}</span>
+                  <span>{localPokemon?.height}</span>
                 </li>
                 <li>
                   <p>Weight</p>
-                  <span>{localPoke?.weight}</span>
+                  <span>{localPokemon?.weight}</span>
                 </li>
                 <li>
                   <p>Base experience</p>
-                  <span>{localPoke?.base_experience}</span>
+                  <span>{localPokemon?.base_experience}</span>
                 </li>
               </ul>
             </section>
@@ -90,7 +88,7 @@ const PokeInfo = ( ) => {
 
             {/* card with name, image and fav btn ----------------*/}
             <section className={css.cardScaler}>
-              <Card pokemon={localPoke} hover={false}/>
+              <Card pokemon={localPokemon} hover={false}/>
             </section>
             {/* ------------------------------------------------- */}
 
@@ -101,7 +99,7 @@ const PokeInfo = ( ) => {
             <section className={css.statusLists}>
               
               <ul>{
-                  localPoke?.abilities?.map((ab:IPokemonAbility, index:number) => (
+                  localPokemon?.abilities?.map((ab:IPokemonAbility, index:number) => (
                     <li key={index}> 
                       <p>{`Ability ${index+1}`}</p>
                       <span>{(ab.ability.name).split('-').join(' ')}</span>
@@ -112,7 +110,7 @@ const PokeInfo = ( ) => {
               <br></br>
               
               <ul>{
-                  localPoke?.stats?.map((stat:IPokemonStatus, index:number) => (
+                  localPokemon?.stats?.map((stat:IPokemonStatus, index:number) => (
                       <li key={index}>
                         <p>{`${stat.stat.name}`.split('-').join(' ')}</p>
                         <span>{(stat.base_stat).toString().split('-').join(' ')}</span>
@@ -122,10 +120,7 @@ const PokeInfo = ( ) => {
 
             </section>
             {/* ------------------------------------------------- */}
-            
-            
 
-            {/* <img src={sprite} /> */}
           </div>
         }
     </> 

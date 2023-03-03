@@ -29,9 +29,15 @@ const Provider = ( { children }: IProviderProps ) => {
     // // whenever the app loads, it will first try to populate
     // // the selectedpokemon state with the previous one saved into local Storage.
     // // here, we are getting this local storage data. It is being setted into <Card />
-    // useEffect(()=>{
-    //     setSelectedPokemon(selectedPoke.get())
-    // },[])
+    
+
+    // pre-setting the selected pokemon from local storge from last selected one.
+    // this is usefull if the user refreshes the '/info' page, because this situation
+    // leads to the page to loose the reference from the pokemon selected.
+    // With this useEffect, it is reseted.
+    useEffect(()=>{
+        setSelectedPokemon(selectedPoke.get())
+    },[])
     
     useEffect(()=>{
 

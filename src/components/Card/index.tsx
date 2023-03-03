@@ -16,7 +16,6 @@ import { IPokemon } from '../../data/@types/IPokemon';
 import PokeBall from './PokeBall';
 import { selectedPoke } from '../../utils/selectedPoke';
 
-
 // the Card will receive a pokemon as props to handle its info.
 interface IProps { pokemon : IPokemon, hover : boolean }
 
@@ -33,6 +32,7 @@ const Card = ( { pokemon, hover } : IProps ) => {
   
   // getting states from context
   const { setSelectedPokemon, setFavPokesIds, favPokesIds } = useContext(Context);
+
 
   // getting pokemon sprite url
   const sprite : string = pokemon?.sprites?.other?.dream_world?.front_default;
