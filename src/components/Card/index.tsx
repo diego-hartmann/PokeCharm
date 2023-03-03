@@ -31,7 +31,7 @@ const Card = ( { pokemon, hover } : IProps ) => {
   const navigateTo = useNavigate();
   
   // getting states from context
-  const { setSelectedPokemon , setFavPokesIds, favPokesIds} = useContext(Context);
+  const { setSelectedPokemon , setFavPokesIds, favPokesIds } = useContext(Context);
 
   // getting pokemon sprite url
   const sprite : string = pokemon.sprites.other.dream_world.front_default;

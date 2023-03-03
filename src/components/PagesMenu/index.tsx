@@ -20,9 +20,10 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
 
   // getting context state
   const { favPokesIds } = useContext(Context);
-  const noneFavs = favPokesIds.length === 0;
+  const noneFavs = favPokesIds?.length === 0 ;
 
   interface IPage{ name: string, path: string, color: string, disabled : boolean }
+  
   const pages : IPage[] = [
     { name: 'Home',    path: '',        color: '#fff', disabled: false },
     { name: 'Pokedex', path: 'pokedex', color: '#fff', disabled:  noneFavs},
@@ -69,11 +70,14 @@ const PagesMenu = ( { pageIndex } : {pageIndex:number} ) => {
         return(
           // @ts-ignore
           <Button
+            role='button'
             key={index}
             variant={variant}
             // disabled={page.disabled} -> i will custom edit it on this sx={...} and onClick props
             sx={sx}
             onClick={onClick}
+            name={name}
+            alt={name}
           >
             {name}
           </Button> 

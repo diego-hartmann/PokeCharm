@@ -16,13 +16,19 @@ import { IPokemon } from '../../data/@types/IPokemon';
 
 
 // the list of Cards for the pokemóns, based on the current pokemons on pagination
-const Cards = ({ currentItems }:any) => {
+const Cards = ({ currentItems }: any) => {
   return (
-    <div className={css.items} >
-      {currentItems?.map((item:any, key:number) => <Card key={key} pokemon={item} hover={true} />)}
+    <div role='list' className={css.items}>
+      {currentItems?.map((item: any, key: number) => (
+        <Card
+          key={key}
+          pokemon={item}
+          hover={true}
+        />
+      ))}
     </div>
   );
-}
+};
 
 interface IProps {
     pokemonsPerPage : number,
@@ -60,8 +66,7 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
 
   // component itself.
   return (
-    <div className={css.container}>
-
+    <div  className={css.container}>
       <Cards currentItems={currentPokemons} />
       <ReactPaginate
         className={css.selector}
@@ -69,7 +74,7 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
         nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
-        pageCount={pageCount}
+        pageCount={pageCount || 0}
         previousLabel="<"
         // @ts-ignore
         renderOnZeroPageCount={()=>{}}
