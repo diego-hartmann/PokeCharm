@@ -1,7 +1,5 @@
-import Home from "../pages/Home";
-// importing pages to add to route system
-import PokeInfo from "../pages/PokeInfo";
-import PokeDex from "../pages/PokeDex";
+// importing the routes list
+import { routes } from './dummy';
 
 // route api components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -14,9 +12,9 @@ const RoutesApp = () => {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path="/pokedex" element={ <PokeDex /> } />
-          <Route path="/info" element={ <PokeInfo/> } />
+          {
+            routes.map( ( rt, key ) => <Route key={key} path={rt.path} element={ <rt.comp/> } />)
+          }
         </Routes>
       </BrowserRouter>
     );
