@@ -14,6 +14,7 @@ import { favList } from '../../utils/favList';
 import { IPokemon } from '../../data/@types/IPokemon';
 
 import PokeBall from './PokeBall';
+import { selectedPoke } from '../../utils/selectedPoke';
 
 
 // the Card will receive a pokemon as props to handle its info.
@@ -27,11 +28,11 @@ interface IProps { pokemon : IPokemon, hover : boolean }
  */
 const Card = ( { pokemon, hover } : IProps ) => {
 
-  // getting navigation
+  // RouteAPI
   const navigateTo = useNavigate();
   
   // getting states from context
-  const { setSelectedPokemon , setFavPokesIds, favPokesIds } = useContext(Context);
+  const { setSelectedPokemon, setFavPokesIds, favPokesIds } = useContext(Context);
 
   // getting pokemon sprite url
   const sprite : string = pokemon.sprites.other.dream_world.front_default;
@@ -54,9 +55,17 @@ const Card = ( { pokemon, hover } : IProps ) => {
    * showing its information.
    */
   function openPage(){
-    // RouteAPI
-    setSelectedPokemon(pokemon); // setting the global selected pokemon, so the custom page will load its data
-    navigateTo('/info');
+    
+    // saving the last selected pokemon into storage,
+    // so the custom page will not loose the the selectedPokemon reference when refreshed.
+    selectedPoke.set(pokemon);
+    
+    // setting the global selected pokemon, so the custom page will load its data
+    setSelectedPokemon(pokemon); 
+    
+    // going yo the custom page
+    navigateTo('/info'); 
+  
   }
 
   function toggleFav(){

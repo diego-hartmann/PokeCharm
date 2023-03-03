@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import usePokeList from '../../hooks/usePokeList';
 import { IPokemon } from '../../data/@types/IPokemon';
 
-// importing the localstorage fav list reference to get and set
+// importing the localstorage list reference to get and set
 import { favList } from '../../utils/favList';
+import { selectedPoke } from '../../utils/selectedPoke';
 
 /**
  * The data provider to all the components to state sharing. 
@@ -25,7 +26,13 @@ const Provider = ( { children }: IProviderProps ) => {
     // so a new page is open with its information.
     const [ selectedPokemon, setSelectedPokemon ] = useState<IPokemon>({} as IPokemon)
 
-
+    // // whenever the app loads, it will first try to populate
+    // // the selectedpokemon state with the previous one saved into local Storage.
+    // // here, we are getting this local storage data. It is being setted into <Card />
+    // useEffect(()=>{
+    //     setSelectedPokemon(selectedPoke.get())
+    // },[])
+    
     useEffect(()=>{
 
         if(!pokemons) return () => console.log("No pokemon fetched yet.");

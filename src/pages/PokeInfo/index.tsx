@@ -5,7 +5,7 @@ import Header from "../../patterns/Header";
 import Context from "../../context"
 
 // native hooks
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 
 // components
 import Card from "../../components/Card"
@@ -25,13 +25,9 @@ import BGEffect from "../../components/BGEffect";
 const PokeInfo = ( ) => {
   
   // getting which pokemon was selected so this component displays its info.
-  const { selectedPokemon } = useContext(Context);
+  const { selectedPokemon  } = useContext(Context);
   
   const sprite = selectedPokemon?.sprites?.other?.dream_world?.front_default;
-
-  // debuging pokemon on init
-  useEffect( ()=> console.log( selectedPokemon )  , [] )
-
 
   return(
       <>
