@@ -1,6 +1,8 @@
 import { favList } from ".";
 
 describe('favList', () => {
+
+    // cleaning it before starting...
     beforeEach(() => {
       localStorage.clear();
     });

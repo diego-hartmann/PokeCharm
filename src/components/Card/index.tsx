@@ -46,8 +46,9 @@ const Card = ( { pokemon, hover } : IProps ) => {
     // here, I am updating the isFav state based on favList content
     setIsFav( favPokesIds.includes(pokemon.id) );
     // also, updating the id of this card.
-    // setId(pokemon.id);
   }, [setIsFav, isFav, pokemon] )
+
+
 
 
   /**
@@ -69,6 +70,13 @@ const Card = ( { pokemon, hover } : IProps ) => {
   }
 
   function toggleFav(){
+
+    //-----------------------
+    // JUST IN CASE OF BEING RENDERED IN /info
+    // if the pokemon is not ready yet, does not add it to favs.
+    // this data is being updated on Provider useEffect after it gets the vale from localStorage.
+    if(!pokemon) return;
+    //-----------------------
 
     // toggling the value
     const _isFav = !isFav; 
@@ -108,9 +116,9 @@ const Card = ( { pokemon, hover } : IProps ) => {
   // rendering component
   return (
     <div className={css.container} data-selected={isFav} data-hover={hover}>
-      <span className={css.name} >{pokemon?.name}</span>
+      <span className={css.name} >{pokemon?.name || '...'}</span>
       <div data-poke className={css.spriteContainer} >
-        <img data-sticker onClick={openPage} className={css.sprite} src={sprite} alt={pokemon?.name} />
+        <img data-sticker onClick={openPage} className={css.sprite} src={sprite || '/skeleton.png'} alt={pokemon?.name} />
       </div>
       <div className={css.fav}>
         <PokeBall onClick={toggleFav}/>
