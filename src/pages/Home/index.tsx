@@ -10,6 +10,7 @@ import { useContext } from 'react';
 
 // common header component with the buttons menu to change pages
 import Header from '../../patterns/Header';
+import Loader from '../../components/Loader';
 
 /**
  * The homepage containing the list of all pokemón fetched into pagination.
@@ -17,13 +18,20 @@ import Header from '../../patterns/Header';
 const Home = ( ) => {
   
   // getting global pokemons list state setted on provider
-  const { pokemons } = useContext(Context);
+  const { pokemons, isLoading } = useContext(Context);
   
   return (
     <>
-      <Header pageIndex={0}/>
-      <BGEffect id={5} />
-      <Pagination pokemonsToShow={pokemons} pokemonsPerPage={6} /> 
+      {
+        isLoading ? 
+          <Loader /> 
+          : 
+          <>
+            <Header pageIndex={0}/>
+            <BGEffect id={5} />
+            <Pagination pokemonsToShow={pokemons} pokemonsPerPage={6} /> 
+          </>
+      }
     </>
   )
 }

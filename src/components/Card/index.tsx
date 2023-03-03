@@ -35,7 +35,7 @@ const Card = ( { pokemon, hover } : IProps ) => {
   const { setSelectedPokemon, setFavPokesIds, favPokesIds } = useContext(Context);
 
   // getting pokemon sprite url
-  const sprite : string = pokemon.sprites.other.dream_world.front_default;
+  const sprite : string = pokemon?.sprites?.other?.dream_world?.front_default;
 
   // isFav states is used to specifies if this Card points to a pokemon that is in user's pokedex.
   // also, used to update the localstorage list, adding or removing this pokemon.
@@ -63,7 +63,7 @@ const Card = ( { pokemon, hover } : IProps ) => {
     // setting the global selected pokemon, so the custom page will load its data
     setSelectedPokemon(pokemon); 
     
-    // going yo the custom page
+    // going to the custom page
     navigateTo('/info'); 
   
   }
@@ -108,9 +108,9 @@ const Card = ( { pokemon, hover } : IProps ) => {
   // rendering component
   return (
     <div className={css.container} data-selected={isFav} data-hover={hover}>
-      <span className={css.name} >{pokemon.name}</span>
+      <span className={css.name} >{pokemon?.name}</span>
       <div data-poke className={css.spriteContainer} >
-        <img data-sticker onClick={openPage} className={css.sprite} src={sprite} alt={pokemon.name} />
+        <img data-sticker onClick={openPage} className={css.sprite} src={sprite} alt={pokemon?.name} />
       </div>
       <div className={css.fav}>
         <PokeBall onClick={toggleFav}/>

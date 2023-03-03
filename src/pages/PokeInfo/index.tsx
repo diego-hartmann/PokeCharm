@@ -14,9 +14,10 @@ import Card from "../../components/Card"
 import css from './style.module.css';
 
 // types
-import { IPokemonAbility, IPokemonStatus } from "../../data/@types/IPokemon";
+import { IPokemon, IPokemonAbility, IPokemonStatus } from "../../data/@types/IPokemon";
 
 import BGEffect from "../../components/BGEffect";
+import { selectedPoke } from "../../utils/selectedPoke";
 
 
 /**
@@ -29,6 +30,20 @@ const PokeInfo = ( ) => {
   
   const sprite = selectedPokemon?.sprites?.other?.dream_world?.front_default;
 
+  // getting the copy of the selectedPokemon, of from the local storage.
+  // this is the internal pokemon obj to handle its info.
+  const [localPoke, setLocalPoke] = useState<IPokemon>(selectedPokemon);
+
+  // if there is no pokemon into state, get it from local storage.
+  useEffect( ()=>{
+  
+    // setLocalPoke(selectedPokemon ?? selectedPoke.get());
+    // ^ not working ^
+
+    setLocalPoke(selectedPokemon);
+  
+  }, [])
+
   return(
       <>
         <Header pageIndex={2}/>
@@ -37,7 +52,7 @@ const PokeInfo = ( ) => {
           <div className={css.info}>
 
 
-            <BGEffect id={selectedPokemon?.id} />
+            <BGEffect id={localPoke?.id} />
 
 
 
@@ -46,23 +61,23 @@ const PokeInfo = ( ) => {
               <ul>
                 <li>
                   <p>Id</p>
-                  <span>{selectedPokemon?.id}</span>
+                  <span>{localPoke?.id}</span>
                 </li>
                 <li>
                   <p>Order</p>
-                  <span>{selectedPokemon?.order}</span>
+                  <span>{localPoke?.order}</span>
                 </li>
                 <li>
                   <p>Height</p>
-                  <span>{selectedPokemon?.height}</span>
+                  <span>{localPoke?.height}</span>
                 </li>
                 <li>
                   <p>Weight</p>
-                  <span>{selectedPokemon?.weight}</span>
+                  <span>{localPoke?.weight}</span>
                 </li>
                 <li>
                   <p>Base experience</p>
-                  <span>{selectedPokemon?.base_experience}</span>
+                  <span>{localPoke?.base_experience}</span>
                 </li>
               </ul>
             </section>
@@ -73,7 +88,7 @@ const PokeInfo = ( ) => {
 
             {/* card with name, image and fav btn ----------------*/}
             <section className={css.cardScaler}>
-              <Card pokemon={selectedPokemon} hover={false}/>
+              <Card pokemon={localPoke} hover={false}/>
             </section>
             {/* ------------------------------------------------- */}
 
@@ -84,7 +99,7 @@ const PokeInfo = ( ) => {
             <section className={css.statusLists}>
               
               <ul>{
-                  selectedPokemon?.abilities.map((ab:IPokemonAbility, index:number) => (
+                  localPoke?.abilities?.map((ab:IPokemonAbility, index:number) => (
                     <li key={index}> 
                       <p>{`Ability ${index+1}`}</p>
                       <span>{(ab.ability.name).split('-').join(' ')}</span>
@@ -95,7 +110,7 @@ const PokeInfo = ( ) => {
               <br></br>
               
               <ul>{
-                  selectedPokemon?.stats.map((stat:IPokemonStatus, index:number) => (
+                  localPoke?.stats?.map((stat:IPokemonStatus, index:number) => (
                       <li key={index}>
                         <p>{`${stat.stat.name}`.split('-').join(' ')}</p>
                         <span>{(stat.base_stat).toString().split('-').join(' ')}</span>
