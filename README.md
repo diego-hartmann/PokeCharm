@@ -52,49 +52,46 @@ This repository is the source code for [PokeCharm](https://poke-charm.vercel.app
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="55px" height="50px" />
 
 
-## Functional requirements:
-✔️ The user should be able to see a main screen with a list of all Pokémons (with 
+## Functional information:
+✔️ The user is able to see a main screen with a list of all Pokémons (with 
 corresponding name and image for each of them).
 
-✔️ In the main page: apply pagination in the list of Pokémons.
+✔️ In the main page: pagination in the list of Pokémons.
 
-✔️ From the main page, while clicking a Pokémon, the user should be able to navigate to 
+✔️ From the main page, while clicking a Pokémon, the user can navigate to 
 another page containing the details of that Pokémon.
 
-✔️ In the Pokémon details page, the user should see at least 6 descriptions, the image and 
+✔️ In the Pokémon details page, the user can see 13 descriptions, the image and 
 the name of one Pokémon.
 
-✔️ In the Pokémon detail page, the user should be able to favorite the Pokémon.
+✔️ In the Pokémon detail page, the user can favorite the Pokémon too.
 
-✔️ From the main page, the user should be able to navigate to another page. This page 
-should contain a list of the favorite Pokémons (with corresponding name and image for each 
-of them).
+✔️ From the main page, the user can navigate to Pokedex (list of the favorite Pokémons). 
 
-## Technical requirements:
-✔️ The application should be implemented in React.
+## Technical information:
+✔️ The application is implemented in React.
 
-✔️ To get the list of Pókemons and their details, use the PokéAPI: https://pokeapi.co/ (see 
-documentation for more details).
+✔️ To get the list of Pókemons and their details, it uses the PokéAPI: https://pokeapi.co/.
 
 ✔️ Usage of the local storage to handle the list of favorite Pokémons.
 
-✔️ Usage of any UI framework adapted to React (Examples: Bootstrap, Semantic UI).
+✔️ Usage of MUI to items such like header buttons.
 
-✔️ The app should be responsive (adapt UI so it can be displayed in different screen sizes).
+✔️ The app is responsive (adapt UI so it can be displayed in different screen sizes).
 
-✔️ The code should contain comments.
-
-✔️ The application code should be submitted in GitHub.
+✔️ The code contain comments.
 
 ### Plus:
-✔️ Apply any UI for all the components.
+✔️ Applyed custom UI for most of the components.
 
-✔️ Add any extra libraries / frameworks / dependencies.
+✔️ Added extra libs (see above in this document).
 
-✔️ Hooks.
+✔️ Added Custom and Native Hooks.
 
-✔️ State Management.
+✔️ State Management with useState and useContext.
 
-✔️ Router.
+✔️ Router to change between pages.
 
-✔️ Unit tests in functions and components.
+✔️ Unit tests in functions.
+
+✔️ Unit tests in components.
