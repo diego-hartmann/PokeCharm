@@ -105,7 +105,7 @@ const Card = ( { pokemon, hover } : IProps ) => {
 
       // replaicing the old list with the newer one.
       favList.set(newFavs); // updating the localstorage list to save the data.
-      setFavPokesIds(newFavs) // context state to App update rendering.
+      setFavPokesIds(newFavs) // update context state to update app rendering.
 
     }
     catch(err){

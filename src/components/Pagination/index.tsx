@@ -1,5 +1,5 @@
 // native hooks
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // This Component is imported from https://github.com/AdeleD/react-paginate
 import ReactPaginate from 'react-paginate';
@@ -13,7 +13,10 @@ import css from './style.module.css';
 
 // types
 import { IPokemon } from '../../data/@types/IPokemon';
+import { TFieldColor } from '../../data/@types/TFieldColor';
 
+// mui based component to search for pokemons
+import SearchBar from './SearchBar';
 
 // the list of Cards for the pokemóns, based on the current pokemons on pagination
 const Cards = ({ currentItems }: any) => {
@@ -43,6 +46,9 @@ interface IProps {
  */
 const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
 
+  // filtered pokemons
+  const [filtered, setFiltered] = useState<IPokemon[]>(pokemonsToShow);
+
   // pagination limit
   const [itemOffset, setItemOffset] = useState(0);
   
@@ -50,24 +56,68 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
   const endOffset = itemOffset + pokemonsPerPage;
   
   // pokemons showed in current page based on the above data. 
-  const currentPokemons = pokemonsToShow.slice(itemOffset, endOffset);
+  const currentPokemons = filtered?.slice(itemOffset, endOffset) || [] as IPokemon[];
   
   // number of pages based on the pokemons number and their distribuition
-  const pageCount = Math.ceil(pokemonsToShow.length / pokemonsPerPage);
+  const pageCount = Math.ceil(filtered.length / pokemonsPerPage);
 
+  /** Sanitize strings removing empty space and convert to lower case. */
+  const sanitize = ( text : string ) => text.trim().toLowerCase();
+
+  /** This function updates the filtered pokemon list to show on pagination. */
+  const updateFiltered = ( content : string ) : TFieldColor => {
+
+    if(content == ''){
+      setFiltered(pokemonsToShow);
+      return 'primary' 
+    } 
+
+    // creating filtered list based on parameter text
+    const filteredList:IPokemon[] = pokemonsToShow.filter( ( currPokemon : IPokemon ) => {
+      // add only the pokemon whose name contains the text into textField. 
+      if(sanitize(currPokemon.name).includes(sanitize(content))){
+        return currPokemon;
+      }
+    });
+
+    if(filteredList.length === 0){
+      setFiltered(pokemonsToShow);  
+      return 'error'
+    }
+
+    setFiltered(filteredList);
+    return 'success';
+
+  }
 
   // When the user clicks another page number.
   const handlePageClick = ( event : any ) => {
     // updates the offset of the pagination so it displays new pokemons on 'currItems' props from <Cards/>
-    const newOffset = (event.selected * pokemonsPerPage) % pokemonsToShow.length;
+    const newOffset = (event.selected * pokemonsPerPage) % filtered.length;
     setItemOffset(newOffset);
   };
 
 
+  // updating the filtered list default value
+  // whenever a pokemon is added or removed from the pagination list
+  // eg. a pokemon is removed from the pokedex
+  useEffect( ( ) => {
+    setFiltered( pokemonsToShow );
+  }, [ pokemonsToShow ] )
+
+
   // component itself.
   return (
+    
     <div  className={css.container}>
+      
+      <SearchBar onChange={ e => updateFiltered(e.target.value) } />
+
+      <br></br>
+      <br></br>
+
       <Cards currentItems={currentPokemons} />
+
       <ReactPaginate
         className={css.selector}
         breakLabel="..."
@@ -77,7 +127,7 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
         pageCount={pageCount || 0}
         previousLabel="<"
         // @ts-ignore
-        renderOnZeroPageCount={()=>{}}
+        renderOnZeroPageCount={<></>}
       />
     </div>
   );

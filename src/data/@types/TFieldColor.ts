@@ -1,0 +1,1 @@
+export type TFieldColor =  "primary" | "error" | "secondary" | "info" | "success" | "warning" | undefined
