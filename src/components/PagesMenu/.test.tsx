@@ -121,7 +121,6 @@ describe('PagesMenu', () => {
   });
 
   test('Does not navigate to Pokedex if is at Pokedex already', () => {
-    // rendering the component 
       // rendering the component 
       render(
         // @ts-ignore

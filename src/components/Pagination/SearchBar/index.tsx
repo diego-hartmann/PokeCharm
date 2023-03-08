@@ -1,35 +1,27 @@
 import { TextField } from '@mui/material';
 import { useState } from 'react';
 import { TFieldColor } from '../../../data/@types/TFieldColor';
+import { IUpdateFilterList } from '../../../data/@types/IUpdateFilterList';
 
 interface IProps {
-    onChange: ( e : any ) => TFieldColor;
+    onChange: ( e : any ) => IUpdateFilterList;
 }
 
 const SearchBar = ( { onChange } : IProps ) => {
 
-    const [color, setColor] = useState<TFieldColor>('primary');
+    const [filterStatus, setFilterStatus] = useState<IUpdateFilterList>( { color: 'primary', label: 'Search pokemón...' } );
 
-    // "primary" | "error" | "secondary" | "info" | "success" | "warning" | undefined'
 
     return (
         <TextField
-            color={color}
-            InputLabelProps={{
-                style:{
-                    color: '#ccc',
-                }
-            }}
-            sx={{ 
-                input: { 
-                    color: '#fff',
-                }
-            }}
-            label="Search pokemón"
+            color={filterStatus.color}
+            InputLabelProps={{style:{color: '#ccc'}}}
+            sx={{input: {color:'#fff'}}}
+            label={filterStatus.label}
             variant='filled'
             onChange={ e => {
-                const col = onChange(e);
-                setColor(col);
+                const status = onChange(e);
+                setFilterStatus(status);
             }}
         />
     )

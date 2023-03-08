@@ -1,5 +1,21 @@
 .header{
     z-index: 888;
-    padding-top: 50px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 10px 12%;
+    background-color: rgba(0, 0, 0, 0.089);
+    overflow-x: hidden;
+}
+
+
+/* only mobile */
+@media screen and (max-width: 700px){
+    .header{
+        justify-content: center;
+        gap: 1rem;
+        padding-bottom: 30px;
+        flex-direction: column;
+    }
 }

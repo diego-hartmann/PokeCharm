@@ -1,25 +1,84 @@
-.title{
-    --border-size: 3px;
-    --border-size-minus: -3px;
-    --border-color: #3d63b7;
-    color:#fac705;
-    letter-spacing: 0.4rem;
-    text-shadow: var(--border-size-minus) var(--border-size-minus) 0 var(--border-color),
-                 var(--border-size) var(--border-size-minus) 0 var(--border-color),
-                 var(--border-size-minus) var(--border-size) 0 var(--border-color),
-                 var(--border-size) var(--border-size) 0 var(--border-color)
+.index{
+    display: flex; 
+    justify-content: center; 
+    align-items:center; 
+    font-size: 4rem;
+}
+.poke{
+    font-size: 4rem;
+    display: flex;
+}
+.o{
+    font-weight: normal;
+    font-size: 4rem;
+    font-weight: normal;
+    color:rgb(255, 71, 71);
+}
+.charm{
+    font-size: 4rem;
+    font-weight: normal;
+    color:rgb(255, 71, 71);
 }
 
-@keyframes wiggle {
-    0% { transform: rotate(0deg); }
-   80% { transform: rotate(0deg); }
-   85% { transform: rotate(5deg); }
-   95% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
+/* not for mobile */
+@media screen and (min-width:500px) {
+   
+    .poke{
+        animation-name: poke;
+        animation-duration: .5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation-delay: 1s;
+    }
+    @keyframes poke {
+        0%{
+            transform: translateY(-100px);
+        }
+        50%{
+            transform: translateY(30px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+
+    .charm{
+        animation-name: charm;
+        animation-duration: .8s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation-delay: 1.5s;
+    }
+    @keyframes charm {
+        0%{
+            transform: translateX(-100vw);
+        }
+        90%{
+            transform: translateX(20px);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+
+    .o{
+        animation-name: appear;
+        animation-delay: 0;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        display: grid;
+        place-items: center;
+    }
+
+    @keyframes appear {
+        0%{
+            transform: scale(0) rotate(0);
+        }
+        100%{
+            transform: scale(1) rotate( calc(360deg * 3));
+        }
+    }
 }
 
-.flame {
-    font-size: 2rem;
-    animation: wiggle 2.5s infinite;
-    filter: drop-shadow(0 0 5px orange);
-}
+

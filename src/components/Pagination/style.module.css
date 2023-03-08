@@ -1,12 +1,21 @@
 .container{
+
     padding: 1rem;
-    width: fit-content;
-    max-width: 80vw;
     margin: 0 auto;
+    transform: translateY(30px);
+    min-height: calc(100vh - 151px);
+    
+    min-width: 80vw;
+    width: fit-content;
+
     border-radius: 0.5rem;
     overflow-x: hidden;
-    min-height: calc(100vh - 270px);
+    
+    display: flex;
+    flex-direction: column;
 
+    justify-content: space-between;
+    gap: 1rem;
 }
 .items{
     border-radius: .5rem;
@@ -16,7 +25,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: .5rem;
 }
 .line{
     flex-shrink: 0;
@@ -35,8 +44,9 @@
     display: flex;
     width: 100%;
     align-items: center;
+    /* justify-content: space-between; */
     justify-content: center;
-    gap: 9px;
+    gap: 2rem;
     list-style-type: none;
     height: 40px;
 }

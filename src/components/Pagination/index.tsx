@@ -13,7 +13,7 @@ import css from './style.module.css';
 
 // types
 import { IPokemon } from '../../data/@types/IPokemon';
-import { TFieldColor } from '../../data/@types/TFieldColor';
+import { IUpdateFilterList } from '../../data/@types/IUpdateFilterList';
 
 // mui based component to search for pokemons
 import SearchBar from './SearchBar';
@@ -65,11 +65,15 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
   const sanitize = ( text : string ) => text.trim().toLowerCase();
 
   /** This function updates the filtered pokemon list to show on pagination. */
-  const updateFiltered = ( content : string ) : TFieldColor => {
+
+  const updateFiltered = ( content : string ) : IUpdateFilterList => {
 
     if(content == ''){
       setFiltered(pokemonsToShow);
-      return 'primary' 
+      return {
+        color: 'primary',
+        label: 'Search pokemón...'
+      }
     } 
 
     // creating filtered list based on parameter text
@@ -82,11 +86,17 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
 
     if(filteredList.length === 0){
       setFiltered(pokemonsToShow);  
-      return 'error'
+      return {
+        color: 'error',
+        label: 'No pokemón found.'
+      }
     }
 
     setFiltered(filteredList);
-    return 'success';
+    return {
+      color: 'success',
+      label: `${filteredList.length} pokemón${filteredList.length > 1 ? 's' : ''} found.`
+    }
 
   }
 
@@ -110,11 +120,10 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
   return (
     
     <div  className={css.container}>
-      
-      <SearchBar onChange={ e => updateFiltered(e.target.value) } />
 
-      <br></br>
-      <br></br>
+      <div style={{alignSelf:'center'}}>
+        <SearchBar onChange={ e => updateFiltered(e.target.value) } />
+      </div>
 
       <Cards currentItems={currentPokemons} />
 

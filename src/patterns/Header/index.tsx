@@ -12,7 +12,5 @@ import css from './index.module.css';
 export default ( { pageIndex } : { pageIndex : number } ) => (
     <div className={css.header}>
         <Logo />
-        <br></br>
         <PagesMenu pageIndex={pageIndex}/>
-        <br></br>
     </div> )
