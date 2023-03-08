@@ -61,44 +61,7 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
   // number of pages based on the pokemons number and their distribuition
   const pageCount = Math.ceil(filtered.length / pokemonsPerPage);
 
-  /** Sanitize strings removing empty space and convert to lower case. */
-  const sanitize = ( text : string ) => text.trim().toLowerCase();
-
-  /** This function updates the filtered pokemon list to show on pagination. */
-
-  const updateFiltered = ( content : string ) : IUpdateFilterList => {
-
-    if(content == ''){
-      setFiltered(pokemonsToShow);
-      return {
-        color: 'primary',
-        label: 'Search pokemón...'
-      }
-    } 
-
-    // creating filtered list based on parameter text
-    const filteredList:IPokemon[] = pokemonsToShow.filter( ( currPokemon : IPokemon ) => {
-      // add only the pokemon whose name contains the text into textField. 
-      if(sanitize(currPokemon.name).includes(sanitize(content))){
-        return currPokemon;
-      }
-    });
-
-    if(filteredList.length === 0){
-      setFiltered(pokemonsToShow);  
-      return {
-        color: 'error',
-        label: 'No pokemón found.'
-      }
-    }
-
-    setFiltered(filteredList);
-    return {
-      color: 'success',
-      label: `${filteredList.length} pokemón${filteredList.length > 1 ? 's' : ''} found.`
-    }
-
-  }
+ 
 
   // When the user clicks another page number.
   const handlePageClick = ( event : any ) => {
@@ -106,7 +69,6 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
     const newOffset = (event.selected * pokemonsPerPage) % filtered.length;
     setItemOffset(newOffset);
   };
-
 
   // updating the filtered list default value
   // whenever a pokemon is added or removed from the pagination list
@@ -122,7 +84,7 @@ const Pagination = ({ pokemonsToShow, pokemonsPerPage }:IProps) => {
     <div  className={css.container}>
 
       <div style={{alignSelf:'center'}}>
-        <SearchBar onChange={ e => updateFiltered(e.target.value) } />
+        <SearchBar setFiltered={setFiltered} allPokes={pokemonsToShow} />
       </div>
 
       <Cards currentItems={currentPokemons} />
